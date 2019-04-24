@@ -29,11 +29,12 @@ class LoginPage extends React.Component {
             <div className='login-page-wrapper'>
                 <img src={Musk} alt="" className="side-photo" />
                 <div className="login-page-content">
-                    <Link to="/">
+                    
                         <div className='logo-wrapper'>
-                            <img src={Logo} />
+                            <Link to="/">
+                                <img src={Logo} />
+                            </Link>
                         </div>
-                    </Link>
                     <form onSubmit={this.login}>
                         <input
                             type='text'
