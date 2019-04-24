@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import '../styles/loginPage.css';
 
-import Musk from '../img/Elon_Musk.jpg';
 import Logo from '../img/logo.png';
 
 class LoginPage extends React.Component {
@@ -27,9 +26,7 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div className='login-page-wrapper'>
-                <img src={Musk} alt="" className="side-photo" />
                 <div className="login-page-content">
-                    
                         <div className='logo-wrapper'>
                             <Link to="/">
                                 <img src={Logo} />
@@ -56,11 +53,8 @@ class LoginPage extends React.Component {
                         {(this.state.credentials.username || this.state.credentials.password !== '') ? (<button className="btn">Log in</button>) : (<button className="btn not-active">Log in</button>)}
                     </form>
                     <div className='login-other-options'>
-                        <Link to='/sign-up'><p>Register</p></Link>
-                        <p className='separator'>|</p>
-                        <p>Forgot the password</p>
+                        <p>Forgot the password?</p>
                     </div>
-                    {/* Register | Forget login */}
                 </div>
             </div>
         )

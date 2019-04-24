@@ -5,7 +5,6 @@
     background-size: 100%;
     background-position-y: -170px;
     background-repeat: no-repeat;
-    position: relative;
 }
 
 .home-page-wrapper .home-content {
@@ -67,6 +66,7 @@
     background: #3b4466;
     color: white;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 .btn:focus {
     outline: none;

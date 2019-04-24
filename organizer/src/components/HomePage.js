@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/homePage.css';
 
-import Background from '../img/home-background.jpg';
-
 
 class HomePage extends Component {
     render() {
@@ -12,7 +10,9 @@ class HomePage extends Component {
                 {/* Page content */}
                 <div className="home-content">
                     <div className="top-wrapper">
+                        {/* Logo */}
                         <div className="logo-wrapper"></div>
+                        {/* Slogan */}
                         <h1 className="home-page-motto">ANYTIME.<br/>Click. Scan. Go!</h1>
                     </div>
                     <div className="home-links-wrapper">
