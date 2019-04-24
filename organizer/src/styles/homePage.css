@@ -1,0 +1,66 @@
+.home-page-wrapper {
+    width: 80%;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    background: rgba(203, 203, 201, .3);
+}
+.home-page-wrapper img {
+    height: 100%;
+    max-height: 100vh;
+    transform: scaleX(-1);
+    opacity: 0.9;
+    position: absolute;
+}
+.home-page-wrapper .home-content {
+    width: 100%;
+    max-height: 100vh;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    padding-top: 200px;
+}
+.home-page-motto {
+    align-self: flex-end;
+    margin: 0 0 30px 50px;
+    padding: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(228, 228, 228);
+    background: rgba(109, 39, 6, 0.5);
+    text-shadow: 2px 2px rgba(175, 79, 0, 0.4);
+    z-index: 2;
+}
+.home-links-wrapper {
+    width: 100%;
+    align-self: flex-end;
+    z-index: 2;
+    padding-bottom: 150px;
+}
+.home-links-wrapper a {
+    text-decoration: none;
+    color: #21263a;
+}
+.login-link-wrapper, .signin-link-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    font-size: 34px;
+    font-weight: bold;
+    transition: all .2s ease-in-out;
+}
+.login-link-wrapper:hover, .signin-link-wrapper:hover {
+    color: rgb(109, 39, 6);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.login-link-wrapper {
+    margin-bottom: 140px;
+}
+.arrow {
+    margin: 0 8% 0 2%;
+}
