@@ -1,1 +1,1 @@
-# labs1-businesscardorganizer-React-
+# labs1-businesscardorganizer-React
