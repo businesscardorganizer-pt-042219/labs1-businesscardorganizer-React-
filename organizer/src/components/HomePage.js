@@ -8,7 +8,6 @@ class HomePage extends Component {
     render() {
         return (
             <div className="home-page-wrapper">
-                {/* Background image */}
                 <img src={Musk} alt=""/>
                 {/* Page content */}
                 <div className="home-content">
