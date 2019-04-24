@@ -37,6 +37,7 @@ form input {
     border: 1px lightgray dotted;
     border-radius: 3px;
     transition: all .2s ease-in-out;
+    /* border-bottom: 1px solid #21263a; */
 }
 form input:focus {
     outline: none;

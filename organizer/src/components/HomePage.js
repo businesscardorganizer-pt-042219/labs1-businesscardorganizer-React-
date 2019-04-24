@@ -2,29 +2,31 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/homePage.css';
 
-import Musk from '../img/Elon_Musk.jpg';
+import Background from '../img/home-background.jpg';
+
 
 class HomePage extends Component {
     render() {
         return (
             <div className="home-page-wrapper">
-                <img src={Musk} alt=""/>
                 {/* Page content */}
                 <div className="home-content">
-                    <h1 className="home-page-motto">Never miss a contact!</h1>
+                    <div className="top-wrapper">
+                        <div className="logo-wrapper"></div>
+                        <h1 className="home-page-motto">ANYTIME.<br/>Click. Scan. Go!</h1>
+                    </div>
                     <div className="home-links-wrapper">
-                        <Link to="/login">
-                            <div className="login-link-wrapper">
-                                <p>Already with us?</p>
-                                <p className="arrow">➤</p>
-                            </div>
-                        </Link>
-                        <Link to="/sign-up">
-                            <div className="signin-link-wrapper">
-                                <p>Ready to go?</p>
-                                <p className="arrow">➤</p>
-                            </div>
-                        </Link>
+                        <div className="login-link-wrapper">
+                            <Link to="/login">
+                                <button className='btn'>Login</button>
+                            </Link>
+                        </div>
+                        <div className="signun-link-wrapper">
+                            <p className="signup-text">Don't have an account?</p>
+                            <Link to="/sign-up">
+                                <p>Sign up here</p>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
