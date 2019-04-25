@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { login } from '../actions';
 
 import '../styles/loginPage.css';
 
@@ -14,6 +16,11 @@ class LoginPage extends React.Component {
     }
     login = e => {
         e.preventDefault();
+        console.log(this.state.credentials);
+        this.props.login(this.state.credentials)
+            .then(() => {
+                this.props.history.push('/');
+            })
         this.setState({
             credentials: {
                 ...this.state.credentials,
@@ -38,7 +45,7 @@ class LoginPage extends React.Component {
                 </div>
                 <div className="login-page-content">
                     <div className='logo-wrapper'>
-                        <img src={Logo} />
+                        <img src={Logo} alt='logo of the app' />
                     </div>
                     <form onSubmit={this.login}>
                         <input
@@ -72,4 +79,10 @@ class LoginPage extends React.Component {
     }
 }
 
-export default LoginPage;
+const mapStateToProps = state => {
+    return {
+      isLoggingIn: state.isLoggingIn
+    };
+};
+
+export default connect(mapStateToProps, { login })(LoginPage);

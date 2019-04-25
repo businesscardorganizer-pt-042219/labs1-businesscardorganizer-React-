@@ -41,7 +41,7 @@ class SignUpPage extends React.Component {
                 </div>
                 <div className="sign-up-content">
                     <div className='logo-wrapper'>
-                        <img src={Logo} />
+                        <img src={Logo} alt='logo of the app' />
                     </div>
                     <form onSubmit={this.signUp}>
                         <input

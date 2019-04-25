@@ -35,13 +35,21 @@
 .login-page-content {
     padding-bottom: 0;
 }
+@media (max-width:750px) {
+    .sign-up-side, .login-side {
+        display: none;
+    }
+    .login-page-content, .sign-up-content {
+        width: 100%;
+    }
+}
 .login-page-content .logo-wrapper, .sign-up-content .logo-wrapper {
     width: 60%;
     margin: 0 auto 30px auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 30px;
+    padding-top: 50px;
 }
 .login-page-content form, .sign-up-content form {
     width: 80%;
@@ -66,7 +74,7 @@ form input:focus {
     transform: scale(1.1);
 }
 form .btn {
-    width: 20%;
+    width: 30%;
     padding: 10px 15px;
     align-self: center;
     border-radius: 3px;
