@@ -5,20 +5,23 @@ import '../styles/loginPage.css';
 
 import Logo from '../img/logo.png';
 
-class LoginPage extends React.Component {
+
+class SignUpPage extends React.Component {
     state = {
         credentials: {
             username: '',
-            password: ''
+            password: '',
+            email: ''
         }
     }
-    login = e => {
+    signUp = e => {
         e.preventDefault();
         this.setState({
             credentials: {
                 ...this.state.credentials,
                 username: '',
-                password: ''
+                password: '',
+                email: ''
             }
         })
     }
@@ -32,21 +35,29 @@ class LoginPage extends React.Component {
     }
     render() {
         return (
-            <div className='login-page-wrapper'>
-                <div className="login-side">
+            <div className='sign-up-wrapper'>
+                <div className="sign-up-side">
                     <h1 className="motto">ANYTIME.<br/>Click.<br/>Scan.<br/>Go!</h1>
                 </div>
-                <div className="login-page-content">
+                <div className="sign-up-content">
                     <div className='logo-wrapper'>
                         <img src={Logo} />
                     </div>
-                    <form onSubmit={this.login}>
+                    <form onSubmit={this.signUp}>
                         <input
                             type='text'
                             name='username'
                             placeholder='username'
                             value={this.state.credentials.username}
-                        onChange={this.handleChange}
+                            onChange={this.handleChange}
+                            required
+                        />
+                        <input
+                            type='email'
+                            name='email'
+                            placeholder='email'
+                            value={this.state.credentials.email}
+                            onChange={this.handleChange}
                             required
                         />
                         <input 
@@ -58,13 +69,12 @@ class LoginPage extends React.Component {
                             required
                         />
                         {/* Check if user started to type something */}
-                        {(this.state.credentials.username || this.state.credentials.password !== '') ? (<button className="btn">Log in</button>) : (<button className="btn not-active">Log in</button>)}
+                        {(this.state.credentials.username || this.state.credentials.password || this.state.credentials.email !== '') ? (<button className="btn">Sign Up</button>) : (<button className="btn not-active">Sign Up</button>)}
                     </form>
-                    <div className='login-other-options'>
-                        <p>Forgot password?</p>
-                    </div>
-                    <div className='create-account'>
-                        <p>First time here? <Link to='/sign-up'>Create your account</Link></p>
+                    <div className='sign-up-other-options'>
+                        <Link to="/login">
+                            <p>Have an account?</p>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -72,4 +82,4 @@ class LoginPage extends React.Component {
     }
 }
 
-export default LoginPage;
+export default SignUpPage;
