@@ -44,6 +44,7 @@
 }
 .user-controls p:hover {
   color: crimson;
+  cursor: pointer;
 }
 .user-delete {
   margin-bottom: 15px;

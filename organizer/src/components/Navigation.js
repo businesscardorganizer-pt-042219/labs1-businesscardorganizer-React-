@@ -23,7 +23,6 @@ class Navigation extends Component {
                     <Link to='/' className="link-nav-user"><img className="nav-user" src={UserIcon} alt="gender neutral user" /></Link>
 
                     <Link to='/login' className="link-nav-logout"><img className="nav-logout" src={LogoutIcon} onClick={this.logout} alt="log out"/></Link>
-
                 </div>
             </div>
         )

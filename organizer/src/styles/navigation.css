@@ -27,6 +27,7 @@
 }
 .nav-options a:hover {
     color: rgb(80, 93, 139);
+    background: rgba(80, 93, 139, .1);
 }
 .nav-options .active {
     border: 1px solid #21263a;
@@ -48,5 +49,5 @@
     border-radius: 3px;
 }
 .nav-options .nav-logout:hover, .nav-options .nav-user:hover {
-    background: rgba(80, 93, 139, .3);
+    background: rgba(80, 93, 139, .1);
 }

@@ -84,6 +84,7 @@ form .btn {
     background: #3b4466;
     color: white;
     margin-bottom: 40px;
+    cursor: pointer;
 }
 form .btn:focus {
     outline: none;
