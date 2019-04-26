@@ -24,6 +24,10 @@ function User(props) {
       <div className="user-img">
         <img src={props.user.Avatar} alt="user-avatar" />
       </div>
+      <div className="user-controls">
+        <p className="user-delete" /* Add onClick event here */>✘</p>
+        <p className="user-edit" /* Add onClick event here */>✎</p>
+      </div>
     </div>
   );
 }
