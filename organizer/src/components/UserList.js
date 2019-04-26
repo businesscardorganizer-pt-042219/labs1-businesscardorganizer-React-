@@ -3,6 +3,7 @@ import User from "./User";
 import data from "../dummydata";
 import PropTypes from "prop-types";
 import "./user.css";
+import Navigation from "./Navigation";
 class UserList extends React.Component {
   constructor() {
     super();
@@ -17,6 +18,7 @@ class UserList extends React.Component {
     console.log(data);
     return (
       <div className="user-list">
+        <Navigation />
         <h1>{this.state.user.name}</h1>
 
         <div className="active-user-list">
