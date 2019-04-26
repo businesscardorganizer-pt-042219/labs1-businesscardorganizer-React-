@@ -18,7 +18,7 @@ class App extends Component {
         <PrivateRoute exact path='/user-list' component={UserList} />
         */}
         <Route path='/user-list' component={UserList} />
-        <Route path='/' component={UserProfile} />
+        <Route exact path='/' component={UserProfile} />
       </div>
     );
   }
