@@ -1,7 +1,6 @@
 import React from "react";
 import "./user.css";
 function User(props) {
-  console.log(props);
   return (
     <div className="user-card">
       <div className="user-header">

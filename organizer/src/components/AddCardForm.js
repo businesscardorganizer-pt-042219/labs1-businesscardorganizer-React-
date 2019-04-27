@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { addCard } from '../actions';
 
 import '../styles/addCardForm.css';
 
@@ -20,6 +22,19 @@ class AddCardForm extends React.Component {
     }
     submit = e => {
         e.preventDefault();
+        const newCard = {
+            first_name: this.state.data.firstName,
+            last_name: this.state.data.lastName,
+            company_name: this.state.data.company,
+            work_title: this.state.data.title,
+            work_phone: this.state.data.phone,
+            // email: this.state.email,
+            linkedIn: this.state.data.linkedIn,
+            github: this.state.data.gitHub,
+            // file: this.state.file
+        }
+        console.log(newCard);
+        this.props.addCard(newCard);
         this.setState({
             data: {
                 ...this.state.data,
@@ -145,4 +160,9 @@ class AddCardForm extends React.Component {
     }
 }
 
-export default AddCardForm;
+const mapStateToProps = state => ({
+    cards: state.cards,
+    savingCard: state.savingCard
+  });
+  
+  export default connect(mapStateToProps, { addCard })(AddCardForm);

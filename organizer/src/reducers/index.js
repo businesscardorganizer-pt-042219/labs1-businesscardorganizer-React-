@@ -1,13 +1,22 @@
 import { 
     LOGIN_START,
     LOGIN_SUCCESS,
-    LOGIN_FAILURE
+    LOGIN_FAILURE,
+    FETCH_DATA_START,
+    FETCH_DATA_SUCCESS,
+    FETCH_DATA_FAILURE,
+    ADD_CARD_START,
+    ADD_CARD_SUCCESS,
+    ADD_CARD_FAILURE
 } from '../actions';
 
 const initialState = {
-    data: [],
+    cards: [],
     isLoggingIn: false,
-    credentials: []
+    credentials: [],
+    fetchingCards: false,
+    savingCard: false,
+    error: ''
 }
 
 const reducer = (state = initialState, action) => {
@@ -31,6 +40,43 @@ const reducer = (state = initialState, action) => {
                 isLoggingIn: false
             };
         }
+        case FETCH_DATA_START:
+            return {
+                ...state,
+                error: '',
+                fetchingCards: true
+            };
+        case FETCH_DATA_SUCCESS:
+            return {
+                ...state,
+                error: '',
+                fetchingCards: false,
+                cards: action.payload
+            };
+        case FETCH_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                fetchingCards: false
+            };
+        case ADD_CARD_START:
+            return {
+                ...state,
+                error: '',
+                savingCard: true,
+            }
+        case ADD_CARD_SUCCESS:
+            return {
+                ...state,
+                savingCard: false,
+                cards: action.payload
+            };
+        case ADD_CARD_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                savingCard: false
+            };
         default:
             return state;
     }
