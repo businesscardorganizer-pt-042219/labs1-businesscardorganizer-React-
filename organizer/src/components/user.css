@@ -5,9 +5,12 @@
   margin: 10px auto;
   padding: 1rem;
   width: 90%;
+  color: #000;
+  background-color: #fff;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   align-items: center;
   text-align: center;
+  cursor: pointer;
 }
 .user-card h2 {
   font-size: 20px;
@@ -16,9 +19,7 @@
 .user-car p {
   width: 100px;
 }
-.active-user-list {
-  border: 1px solid black;
-}
+
 .user-list {
   display: flex;
   flex-direction: column;
