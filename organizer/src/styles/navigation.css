@@ -1,5 +1,5 @@
 .navigation {
-    padding: 5px 0;
+    padding: 5px 5%;
     margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
@@ -20,27 +20,34 @@
     align-items: center; 
 }
 .nav-options a {
-    margin-right: 5%;
+    margin-right: 2%;
     text-decoration: none;
     color: #21263a;
     padding: 8px;
 }
 .nav-options a:hover {
-    color: blue;
+    color: rgb(80, 93, 139);
+    background: rgba(80, 93, 139, .1);
 }
 .nav-options .active {
     border: 1px solid #21263a;
     border-radius: 3px;
 }
-.nav-options .link-nav-logout {
+.nav-options .link-nav-logout, .nav-options .link-nav-user {
     padding: 0;
     border: none;
+    width: 30px;
+    height: 30px;
 }
 .nav-options .nav-logout {
-    width: 40%;
-    /* padding: 3px; */
+    width: 86%;
+    padding: 7% 6% 5% 6%;
     border-radius: 3px;
 }
-.nav-options .nav-logout:hover {
-    background: rgba(0, 0, 255, .1);
+.nav-options .nav-user {
+    width: 100%;
+    border-radius: 3px;
+}
+.nav-options .nav-logout:hover, .nav-options .nav-user:hover {
+    background: rgba(80, 93, 139, .1);
 }

@@ -1,0 +1,4 @@
+[build]
+base = "organizer/"
+publish = "organizer/build/"
+command = "yarn build"

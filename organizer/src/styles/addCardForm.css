@@ -1,0 +1,74 @@
+.user-profile-wrapper .navigation {
+    margin-bottom: 25px;
+} /*<---- move to userProfile.css */
+.add-card-form-wrapper {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 40px 0;
+    background: rgb(233, 233, 233);
+    border-radius: 3px;
+}
+.add-card-form-header {
+    width: 80%;
+    margin: 0 auto;
+}
+.add-card-form-header h1 {
+    font-size: 30px;
+    color: #3b4466;
+    margin-bottom: 20px;
+}
+.add-card-form-header p {
+    margin-bottom: 45px;
+    font-size: 18px;
+    color: #21263a;
+}
+.add-card-form-content form {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.first-name, .phone {
+    margin-bottom: 10px;
+}
+.add-card-form-content form span {
+    margin-bottom: 40px;
+    color: gray;
+}
+.add-card-form-content .btn {
+    margin-bottom: 0;
+}
+.add-card-form-content form p {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    /* font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black; */
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 40px;
+    padding: 10px;
+    border: 1.5px white solid;
+    width: 20%;
+    text-align: center;
+    color: gray;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #21263a;
+    border: 1.5px #21263a solid;
+    color: white;
+}
