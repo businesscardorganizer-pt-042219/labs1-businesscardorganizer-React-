@@ -63,3 +63,22 @@ export const getCards = () => dispatch => {
         dispatch({ type: ADD_CARD_FAILURE, payload: err.response });
       });
   };
+
+  export const DELETE_CARD_START = 'DELETE_CARD_START';
+  export const DELETE_CARD_SUCCESS = 'DELETE_CARD_SUCCESS';
+  export const DELETE_CARD_FAILURE = 'DELETE_CARD_FAILURE';
+
+  export const deleteCard = id => dispatch => {
+    dispatch({ type: DELETE_CARD_START });
+    axios
+      .delete(`https://business-card-organizer.herokuapp.com/api/cards/${id}`, id)
+      .then(res => {
+        dispatch({
+          type: DELETE_CARD_SUCCESS,
+          payload: res.data
+        });
+      })
+      .catch(err => {
+        dispatch({ type: DELETE_CARD_FAILURE, payload: err.response });
+      });
+  };

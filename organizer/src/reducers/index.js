@@ -7,7 +7,10 @@ import {
     FETCH_DATA_FAILURE,
     ADD_CARD_START,
     ADD_CARD_SUCCESS,
-    ADD_CARD_FAILURE
+    ADD_CARD_FAILURE,
+    DELETE_CARD_START,
+    DELETE_CARD_SUCCESS,
+    DELETE_CARD_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -16,6 +19,7 @@ const initialState = {
     credentials: [],
     fetchingCards: false,
     savingCard: false,
+    deletingCard: false,
     error: ''
 }
 
@@ -76,6 +80,24 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload,
                 savingCard: false
+            };
+        case DELETE_CARD_START:
+            return {
+                ...state,
+                error: '',
+                deletingCard: true,
+            }
+        case DELETE_CARD_SUCCESS:
+            return {
+                ...state,
+                deletingCard: false,
+                cards: action.payload
+            }
+        case DELETE_CARD_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                deletingcard: false
             };
         default:
             return state;
