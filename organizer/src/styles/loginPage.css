@@ -1,0 +1,142 @@
+.login-page-wrapper, .sign-up-wrapper {
+    width: 100%;
+    background:
+        radial-gradient(black 15%, transparent 16%) 0 0,
+        radial-gradient(black 15%, transparent 16%) 8px 8px,
+        radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+        radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-color:#282828;
+    background-size:16px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sign-up-side, .login-side {
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sign-up-side h1, .login-side h1 {
+    color: white;
+    text-align: left;
+    font-size: 50px;
+    line-height: 90px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.login-page-content, .sign-up-content {
+    width: 60%;
+    height: 100vh;
+    margin: 0 auto;
+    background: rgb(233, 233, 233);
+}
+.login-page-content {
+    padding-bottom: 0;
+}
+@media (max-width:750px) {
+    .sign-up-side, .login-side {
+        display: none;
+    }
+    .login-page-content, .sign-up-content {
+        width: 100%;
+    }
+}
+.login-page-content .logo-wrapper, .sign-up-content .logo-wrapper {
+    width: 60%;
+    margin: 0 auto 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+.login-page-content form, .sign-up-content form {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+form input {
+    margin-bottom: 40px;
+    padding: 10px;
+    background: transparent;
+    font-size: 18px;
+    border: 1.5px white dashed;
+    border-radius: 3px;
+    transition: all .2s ease-in-out;
+}
+form input:focus {
+    outline: none;
+    background: rgba(210, 229, 255, .5);
+    border: 1px dotted transparent;
+    transform: scale(1.1);
+}
+form .btn {
+    width: 30%;
+    padding: 10px 15px;
+    align-self: center;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #3b4466;
+    color: white;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+form .btn:focus {
+    outline: none;
+}
+form .btn:hover {
+    background: #21263a;
+}
+form .btn.not-active {
+    background: white;
+    color: rgba(59, 68, 102, .5);
+}
+form .btn.not-active:hover {
+    cursor: default;
+}
+form .btn.not-active:focus {
+    cursor: default;
+    outline: none;
+}
+.login-other-options, .sign-up-other-options {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #21263a;
+    font-weight: bold;
+}
+.login-other-options a, .sign-up-other-options a {
+    text-decoration: none;
+    color: #21263a;
+    font-weight: bold;
+}
+.login-other-options a:hover, .sign-up-other-options a:hover {
+    text-decoration: underline;
+}
+.create-account {
+    width: 100%;
+    background: rgba(59, 68, 102, .1);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+.create-account p {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+.create-account p a {
+    text-decoration: none;
+    color: #21263a;
+    font-weight: bold;
+}
+.create-account p a:hover {
+    text-decoration: underline;
+}

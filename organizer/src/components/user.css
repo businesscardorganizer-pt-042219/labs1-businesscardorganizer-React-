@@ -19,7 +19,9 @@
 .user-car p {
   width: 100px;
 }
-
+.active-user-list {
+  /* border: 1px solid black; */
+}
 .user-list {
   display: flex;
   flex-direction: column;
@@ -36,4 +38,20 @@
 .user-img img {
   height: 50px;
   width: 50px;
+}
+.user-controls p {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+  color: rgb(196, 196, 196);
+}
+.user-controls p:hover {
+  color: crimson;
+  cursor: pointer;
+}
+.user-delete {
+  margin-bottom: 15px;
+}
+.user-edit {
+  transform: scale(-1, 1);
 }
