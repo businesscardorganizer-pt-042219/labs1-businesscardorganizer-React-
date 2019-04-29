@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { login } from '../actions';
 
 import '../styles/loginPage.css';
 
 import Logo from '../img/logo.png';
+import SpinnerDots from './SpinnerDots';
 
 
 class SignUpPage extends React.Component {
@@ -16,6 +19,10 @@ class SignUpPage extends React.Component {
     }
     signUp = e => {
         e.preventDefault();
+        this.props.login(this.state.credentials)
+            .then(() => {
+                this.props.history.push('/');
+            })
         this.setState({
             credentials: {
                 ...this.state.credentials,
@@ -69,7 +76,9 @@ class SignUpPage extends React.Component {
                             required
                         />
                         {/* Check if user started to type something */}
-                        {(this.state.credentials.username || this.state.credentials.password || this.state.credentials.email !== '') ? (<button className="btn">Sign Up</button>) : (<button className="btn not-active">Sign Up</button>)}
+                        {(!this.props.isLoggingIn &&(this.state.credentials.username || this.state.credentials.password || this.state.credentials.email !== '')) ? (<button className="btn">Sign Up</button>) : (<button className="btn not-active">Sign Up</button>)}
+                        {/* Show bubbling dots animation while loggin with the server */}
+                        {this.props.isLoggingIn && <button className="btn not-active"><SpinnerDots/></button>}
                     </form>
                     <div className='sign-up-other-options'>
                         <Link to="/login">
@@ -82,4 +91,10 @@ class SignUpPage extends React.Component {
     }
 }
 
-export default SignUpPage;
+const mapStateToProps = state => {
+    return {
+      isLoggingIn: state.isLoggingIn
+    };
+};
+
+export default connect(mapStateToProps, { login })(SignUpPage);
