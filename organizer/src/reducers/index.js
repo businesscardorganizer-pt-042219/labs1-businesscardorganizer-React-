@@ -91,7 +91,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 deletingCard: false,
-                cards: action.payload
+                cards: [...state.cards, action.payload]
             }
         case DELETE_CARD_FAILURE:
             return {
