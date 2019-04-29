@@ -3,7 +3,7 @@ import User from "./User";
 // import data from "../dummydata";
 // import PropTypes from "prop-types";
 // import { Link } from "react-router-dom";
-import AddCardForm from "./AddCardForm";
+//import AddCardForm from "./AddCardForm";
 import { getData } from "../actions";
 import { connect } from "react-redux";
 import "./user.css";

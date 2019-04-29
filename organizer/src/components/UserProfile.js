@@ -1,6 +1,7 @@
 import React from "react";
 import dummydata from "../dummydata";
 // import user from "./User";
+import { Link } from "react-router-dom";
 import QRcode from "qrcode-react";
 
 const Profile = props => {
@@ -36,16 +37,18 @@ const Profile = props => {
       </p> */}
 
       <div>
-        <QRcode
-          value={profile.Github}
-          bgColor="#FFFFFF"
-          fgColor="#000000"
-          level="L"
-        />
+        <Link to={props.Github}>
+          <QRcode
+            value={profile.email}
+            bgColor="#FFFFFF"
+            fgColor="#000000"
+            level="L"
+          />
+        </Link>
       </div>
-
+      {/* 
       <p>Github: {profile.gitub}</p>
-      <p>LinkedIn: {profile.linkedIn}</p>
+      <p>LinkedIn: {profile.linkedIn}</p> */}
     </div>
   );
 };
