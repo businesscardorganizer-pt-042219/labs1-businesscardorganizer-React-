@@ -5,6 +5,7 @@ import QRcode from "qrcode-react";
 
 const Profile = props => {
   console.log(props);
+
   const id = props.match.params.id;
   const profile = dummydata.find(user => `${user.id}` === id);
   return (
@@ -16,6 +17,15 @@ const Profile = props => {
         Email:
         {profile.email}
       </p>
+      {/* <p>Work Title: {profile.work_title}</p>
+      <address />
+
+      <p>City: {profile.country}</p>
+      <p>Company: {profile.company_name}</p>
+      <p>Cell Phone: {profile.cell_phone}</p>
+      <p>Work Phone: {profile.work_phone}</p>
+      <p>URL: {profile.URL}</p> */}
+
       {/* <p>
         LinkedIn:
         <a href={profile.LinkedIn} alt="linkedin" />
@@ -26,8 +36,16 @@ const Profile = props => {
       </p> */}
 
       <div>
-        <QRcode value="" bgColor="#FFFFFF" fgColor="#000000" level="L" />
+        <QRcode
+          value={profile.Github}
+          bgColor="#FFFFFF"
+          fgColor="#000000"
+          level="L"
+        />
       </div>
+
+      <p>Github: {profile.gitub}</p>
+      <p>LinkedIn: {profile.linkedIn}</p>
     </div>
   );
 };

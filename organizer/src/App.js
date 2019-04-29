@@ -8,11 +8,21 @@ class App extends Component {
   handleProfile = () => {};
 
   render() {
+    // const { user } = this.state;
     return (
       <div className="App">
-        <h1>Business User Organizer</h1>
-        <Route exact path="/UserList" component={UserList} />
-        <Route exact path="/UserList/:id" component={UserProfile} />
+        <Route
+          exact
+          path="/UserList"
+          // render={props => <UserList {...props} user={user} />}
+          component={UserList}
+        />
+        <Route
+          exact
+          path="/UserList/:id"
+          // render={props => <UserProfile {...props} user={user} />}
+          component={UserProfile}
+        />
       </div>
     );
   }
