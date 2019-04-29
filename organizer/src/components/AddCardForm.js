@@ -156,6 +156,7 @@ class AddCardForm extends React.Component {
                         {(this.state.data.firstName || this.state.data.lastName || this.state.data.company || this.state.data.title || this.state.data.phone || this.state.data.email || this.state.data.linkedIn || this.state.data.gitHub !== '') ? (<button className="btn">Create card</button>) : (<button className="btn not-active">Create card</button>)}
                     </form>
                 </div>
+                <div className="hide-form-arrow" onClick={this.props.hideForm}>⬆︎</div>
             </div>
         )
     }

@@ -4,6 +4,7 @@ import { getCards, deleteCard} from '../actions';
 
 import Navigation from "./Navigation";
 import AddCardForm from "./AddCardForm";
+import QrCode from 'react.qrcode.generator';
 
 import "../styles/userProfile.css";
 
@@ -27,7 +28,8 @@ class UserProfile extends Component {
             <div className="add-card-wrapper">
                 
                 { this.state.displayForm ? (<AddCardForm hideForm={this.hideForm} />) : (<img src={AddIcon} className="add-card-icon" alt="" onClick={this.displayForm} />) }
-                
+                {/* QRCode example. We should add dinamic route with an id of particular card in there */}
+                <QrCode value='https://google.com' size="128" foreground="#5BB3B0" background="transparent" />
             </div>
         </div>
     );
@@ -40,4 +42,4 @@ const mapStateToProps = state => ({
     deletingCard: state.deletingCard
   });
   
-  export default connect(mapStateToProps, { getCards, deleteCard })(UserProfile);
+export default connect(mapStateToProps, { getCards, deleteCard })(UserProfile);

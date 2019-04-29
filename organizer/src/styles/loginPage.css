@@ -99,6 +99,9 @@ form input:focus {
     border: 1px dotted transparent;
     transform: scale(1.1);
 }
+form input:active {
+    background: transparent !important;
+}
 form .btn {
     width: 30%;
     padding: 10px 15px;
@@ -113,6 +116,9 @@ form .btn {
     margin-bottom: 40px;
     cursor: pointer;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 form .btn:focus {
     outline: none;

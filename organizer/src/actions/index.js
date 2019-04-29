@@ -71,7 +71,7 @@ export const getCards = () => dispatch => {
   export const deleteCard = id => dispatch => {
     dispatch({ type: DELETE_CARD_START });
     axios
-      .delete(`https://business-card-organizer.herokuapp.com/api/cards/${id}`/*, id*/)
+      .delete(`https://business-card-organizer.herokuapp.com/api/cards/${id}`, id)
       .then(res => {
         dispatch({
           type: DELETE_CARD_SUCCESS,

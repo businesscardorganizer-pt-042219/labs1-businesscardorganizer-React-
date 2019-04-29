@@ -1,8 +1,8 @@
 .add-card-form-wrapper {
     width: 70%;
     height: 100%;
-    margin: 0 auto;
-    padding: 40px 0;
+    margin: 0 auto 40px auto;
+    padding: 40px 0 0 0;
     background: rgba(91, 179, 176, .1);
     border-radius: 3px;
 }
@@ -66,4 +66,19 @@
 .inputfile + label:hover {
     background-color: #21827F;
     color: white;
+}
+
+.add-card-form-wrapper .hide-form-arrow {
+    width: 100%;
+    margin-top: 30px;
+    background: rgba(91, 179, 176, .5);
+    text-align: center;
+    padding: 10px 0;
+    color: white;
+    font-size: 20px;
+    border-radius: 0 0 3px 3px;
+}
+.add-card-form-wrapper .hide-form-arrow:hover {
+    background: #5BB3B0;
+    cursor: pointer;
 }
