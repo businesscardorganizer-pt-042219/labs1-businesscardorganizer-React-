@@ -9,7 +9,7 @@ export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
 export const getData = () => dispatch => {
   dispatch({ type: FETCH_DATA });
   axios
-    .get("https://business-card-organizer.herokuapp.com/api/cards/")
+    .get("https://business-card-organizer.herokuapp.com/api/users/cards/")
     .then(res => {
       dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
     })
@@ -24,7 +24,7 @@ export const addCard = newCard => dispatch => {
   dispatch({ type: ADD_CARD_START });
   axios
     .post(
-      "https://business-card-organizer.herokuapp.com/api/cards/",
+      "https://business-card-organizer.herokuapp.com/api/users/cards/",
       newCard /*, {
         headers: { Authorization: localStorage.getItem("token") }
       }*/
@@ -47,7 +47,10 @@ export const UPDATE_CARD_FAILURE = "UPDATE_CARD_FAILURE";
 export const updateData = id => dispatch => {
   dispatch({ type: UPDATE_CARD_START });
   axios
-    .put(`https://business-card-organizer.herokuapp.com/api/cards/${id}`, id)
+    .put(
+      `https://business-card-organizer.herokuapp.com/api/users/cards/${id}`,
+      id
+    )
     .then(res => dispatch({ type: UPDATE_CARD_UPDATED, payload: res.data }))
     .catch(err =>
       dispatch({ type: UPDATE_CARD_FAILURE, payload: err.response })
@@ -61,7 +64,10 @@ export const DELETE_CARD_FAILURE = "DELETE_CARD_FAILURE";
 export const deleteCard = id => dispatch => {
   dispatch({ type: DELETE_CARD_START });
   axios
-    .delete(`https://business-card-organizer.herokuapp.com/api/cards/${id}`, id)
+    .delete(
+      `https://business-card-organizer.herokuapp.com/api/users/cards/${id}`,
+      id
+    )
     .then(res => {
       dispatch({
         type: DELETE_CARD_SUCCESS,
