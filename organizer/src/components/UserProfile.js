@@ -4,7 +4,7 @@ import { getCards, deleteCard} from '../actions';
 
 import Navigation from "./Navigation";
 import AddCardForm from "./AddCardForm";
-import QrCode from 'react.qrcode.generator';
+import QRCode from "../../node_modules/qrcode-react/lib/index";
 
 import "../styles/userProfile.css";
 
@@ -13,6 +13,9 @@ import AddIcon from "../img/add-icon.png";
 class UserProfile extends Component {
     state = {
         displayForm: false
+    }
+    componentDidMount() {
+        this.props.getUserCard(/* What type of id should I put there? */);
     }
     displayForm = e => {
         e.preventDefault();
@@ -28,8 +31,15 @@ class UserProfile extends Component {
             <div className="add-card-wrapper">
                 
                 { this.state.displayForm ? (<AddCardForm hideForm={this.hideForm} />) : (<img src={AddIcon} className="add-card-icon" alt="" onClick={this.displayForm} />) }
+
+
                 {/* QRCode example. We should add dinamic route with an id of particular card in there */}
-                <QrCode value='https://google.com' size="128" foreground="#5BB3B0" background="transparent" />
+
+                <QRCode className='qrcode' value='https://www.youtube.com/watch?v=oyB5OZo3XsY'
+                    size={300}
+                    fgColor='rgb(39, 39, 39)'
+                    bgColor='transparent'
+                    logo='http://google.com'/>
             </div>
         </div>
     );
@@ -37,7 +47,7 @@ class UserProfile extends Component {
 }
 
 const mapStateToProps = state => ({
-    cards: state.cards,
+    usersCard: state.usersCard,
     fetchingCards: state.fetchingCards,
     deletingCard: state.deletingCard
   });

@@ -30,7 +30,7 @@ function User(props) {
           <h4>Contact information</h4>
           <div className="card-body-item">
             <img className="phone-icon" src={PhoneIcon} alt="" />
-            <div>{props.card.work_phone}</div>
+            <div>{props.card.cell_phone}</div>
           </div>
           <div className="card-body-item">
             <img className="email-icon" src={EmailIcon} alt="" />
