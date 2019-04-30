@@ -28,11 +28,12 @@ export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
 export const getCards = () => dispatch => {
     dispatch({ type: FETCH_DATA_START });
     axios
-      .get("https://business-card-organizer.herokuapp.com/api/cards/"/*, {
+      .get("https://business-card-organizer.herokuapp.com/api/users/cards"/*, {
         headers: { Authorization: localStorage.getItem("token") }
       }*/)
       .then(res => {
-        dispatch({
+        console.log(res);
+        return dispatch({
           type: FETCH_DATA_SUCCESS,
           payload: res.data
         });
@@ -50,10 +51,11 @@ export const getCards = () => dispatch => {
   export const addCard = newCard => dispatch => {
     dispatch({ type: ADD_CARD_START });
     axios
-      .post("https://business-card-organizer.herokuapp.com/api/cards/", newCard/*, {
+      .post("https://business-card-organizer.herokuapp.com/api/users/cards", newCard/*, {
         headers: { Authorization: localStorage.getItem("token") }
       }*/)
       .then(res => {
+        console.log(res);
         dispatch({
           type: ADD_CARD_SUCCESS,
           payload: res.data
@@ -71,9 +73,10 @@ export const getCards = () => dispatch => {
   export const deleteCard = id => dispatch => {
     dispatch({ type: DELETE_CARD_START });
     axios
-      .delete(`https://business-card-organizer.herokuapp.com/api/cards/${id}`, id)
-      .then(res => {
-        dispatch({
+      .delete(`https://business-card-organizer.herokuapp.com/api/users/cards/${id}`)
+      .then((res) => {
+        console.log(res);
+        return dispatch({
           type: DELETE_CARD_SUCCESS,
           payload: res.data
         });

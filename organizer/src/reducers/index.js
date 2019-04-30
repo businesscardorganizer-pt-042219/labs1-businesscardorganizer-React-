@@ -73,7 +73,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 savingCard: false,
-                cards: action.payload
+                cards: [...state.cards, action.payload]
             };
         case ADD_CARD_FAILURE:
             return {
@@ -91,7 +91,13 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 deletingCard: false,
-                cards: [...state.cards, action.payload]
+                cards: state.cards.filter(card => {
+                    if (card.id !== action.payload) {
+                        return card
+                    } else {
+                        return null
+                    }
+                })
             }
         case DELETE_CARD_FAILURE:
             return {

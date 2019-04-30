@@ -19,8 +19,7 @@ class LoginPage extends React.Component {
         e.preventDefault();
         this.props.login(this.state.credentials)
             .then(() => {
-                this.props.history.push('/');
-            })
+                this.props.history.push('/');            })
         this.setState({
             credentials: {
                 ...this.state.credentials,
