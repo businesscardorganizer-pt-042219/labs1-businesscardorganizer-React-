@@ -43,6 +43,31 @@ export const getCards = () => dispatch => {
       });
   };
 
+  export const GET_CARD_BY_ID_START = "GET_CARD_BY_ID_START";
+  export const GET_CARD_BY_ID_SUCCESS = "GET_CARD_BY_ID_SUCCESS";
+  export const GET_CARD_BY_ID_FAILURE = "GET_CARD_BY_ID_FAILURE";
+
+  export const getCardById = (id) => dispatch => {
+    dispatch({ type: GET_CARD_BY_ID_START });
+    axios
+      .get(`https://business-card-organizer.herokuapp.com/api/users/cards/${id}`, id/*, {
+        headers: { Authorization: localStorage.getItem("token") }
+      }*/)
+      .then(res => {
+        console.log(res);
+        return dispatch({
+          type: GET_CARD_BY_ID_SUCCESS,
+          payload: res.data[0]
+        });
+      })
+      .catch(err => {
+        dispatch({ type: GET_CARD_BY_ID_FAILURE, payload: err.response });
+      });
+  };
+
+
+
+
   export const ADD_CARD_START = 'ADD_CARD_START';
   export const ADD_CARD_SUCCESS = 'ADD_CARD_SUCCESS';
   export const ADD_CARD_FAILURE = 'ADD_CARD_FAILURE';

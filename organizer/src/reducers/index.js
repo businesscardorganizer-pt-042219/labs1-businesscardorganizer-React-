@@ -5,6 +5,9 @@ import {
     FETCH_DATA_START,
     FETCH_DATA_SUCCESS,
     FETCH_DATA_FAILURE,
+    GET_CARD_BY_ID_START,
+    GET_CARD_BY_ID_SUCCESS,
+    GET_CARD_BY_ID_FAILURE,
     ADD_CARD_START,
     ADD_CARD_SUCCESS,
     ADD_CARD_FAILURE,
@@ -15,6 +18,7 @@ import {
 
 const initialState = {
     cards: [],
+    cardById: [],
     isLoggingIn: false,
     credentials: [],
     fetchingCards: false,
@@ -58,6 +62,25 @@ const reducer = (state = initialState, action) => {
                 cards: action.payload
             };
         case FETCH_DATA_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                fetchingCards: false
+            };
+        case GET_CARD_BY_ID_START:
+            return {
+                ...state,
+                error: '',
+                fetchingCards: true
+            };
+        case GET_CARD_BY_ID_SUCCESS:
+            return {
+                ...state,
+                error: '',
+                fetchingCards: false,
+                cardById: action.payload
+            };
+        case GET_CARD_BY_ID_FAILURE:
             return {
                 ...state,
                 error: action.payload,
