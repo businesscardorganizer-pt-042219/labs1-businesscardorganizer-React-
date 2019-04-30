@@ -27,7 +27,7 @@ class AddCardForm extends React.Component {
             last_name: this.state.data.lastName,
             company_name: this.state.data.company,
             work_title: this.state.data.title,
-            work_phone: this.state.data.phone,
+            cell_phone: this.state.data.phone,
             // email: this.state.email,
             linkedIn: this.state.data.linkedIn,
             github: this.state.data.gitHub,

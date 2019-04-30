@@ -8,7 +8,7 @@ export const login = (credentials) => dispatch => {
     dispatch({ type: LOGIN_START});
     localStorage.removeItem("token");
     return axios
-        .post(/*'link to server'*/ credentials)
+        .post("https://business-card-organizer.herokuapp.com/login", credentials)
         .then(res => {
             localStorage.setItem('token', res.data.payload);
             dispatch({ type: LOGIN_SUCCESS, payload: res.data, credentials: credentials});
@@ -78,7 +78,7 @@ export const getCards = () => dispatch => {
         console.log(res);
         return dispatch({
           type: DELETE_CARD_SUCCESS,
-          payload: res.data
+          payload: id/*res.data*/
         });
       })
       .catch(err => {
