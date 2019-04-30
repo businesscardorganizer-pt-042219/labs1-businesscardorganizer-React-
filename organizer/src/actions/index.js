@@ -48,7 +48,7 @@ export const updateData = id => dispatch => {
   dispatch({ type: UPDATE_CARD_START });
   axios
     .put(`https://business-card-organizer.herokuapp.com/api/cards/${id}`, id)
-    .then(res => dispatch({ type: UPDATE_CARD_START, payload: res.data }))
+    .then(res => dispatch({ type: UPDATE_CARD_UPDATED, payload: res.data }))
     .catch(err =>
       dispatch({ type: UPDATE_CARD_FAILURE, payload: err.response })
     );

@@ -12,7 +12,7 @@ import {
   DELETE_CARD_SUCCESS,
   DELETE_CARD_FAILURE,
   UPDATE_CARD_START,
-  UPDATE_CARD_SUCCESS,
+  UPDATE_CARD_UPDATED,
   UPDATE_CARD_FAILURE
 } from "../actions";
 
@@ -86,7 +86,7 @@ const reducer = (state = initialState, action) => {
         error: "",
         updatingCard: true
       };
-    case UPDATE_CARD_SUCCESS:
+    case UPDATE_CARD_UPDATED:
       return {
         ...state,
         error: "",

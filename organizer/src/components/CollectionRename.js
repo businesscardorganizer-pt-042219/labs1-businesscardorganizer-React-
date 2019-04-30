@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { updateCard } from "./actions";
+import { connect } from "react-redux";
 
 class CollectionRenameForm extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       name: "",
       email: "",
@@ -23,7 +24,8 @@ class CollectionRenameForm extends React.Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const card = this.state;
-    this.setState({ inputValue: "" });
+    this.props.updateCard(card);
+    this.setState({ name: "", email: "", title: "" });
   };
 
   handleUpdate = event => {
@@ -60,3 +62,15 @@ class CollectionRenameForm extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    name: state.name,
+    email: state.email,
+    title: state.title
+  };
+};
+export default connect(
+  mapStateToProps,
+  { updateCard }
+)(CollectionRenameForm);

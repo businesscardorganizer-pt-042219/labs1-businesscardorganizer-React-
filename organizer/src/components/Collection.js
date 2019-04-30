@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 import CollectionRename from "./CollectionRename";
-import { updateCard } from "../actions";
+import User from "./User";
 
 class Collection extends React.Component {
   constructor() {
@@ -15,7 +15,9 @@ class Collection extends React.Component {
     return (
       <div>
         <ul>
-          <li>{this.state.collection}</li>
+          {this.state.collection.map((collection, index) => {
+            <li />;
+          })}
         </ul>
       </div>
     );

@@ -39,7 +39,7 @@ const Profile = props => {
       <div>
         <Link to={props.Github}>
           <QRcode
-            value={profile.email}
+            value={profile.Github}
             bgColor="#FFFFFF"
             fgColor="#000000"
             level="L"
