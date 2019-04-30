@@ -15,7 +15,7 @@ class UserProfile extends Component {
         displayForm: false
     }
     componentDidMount() {
-        this.props.getUserCard(/* What type of id should I put there? */);
+        // this.props.getUserCard(/* What type of id should I put there? */);
     }
     displayForm = e => {
         e.preventDefault();
