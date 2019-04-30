@@ -8,6 +8,9 @@ import {
     GET_CARD_BY_ID_START,
     GET_CARD_BY_ID_SUCCESS,
     GET_CARD_BY_ID_FAILURE,
+    GET_USERS_CARD_START,
+    GET_USERS_CARD_SUCCESS,
+    GET_USERS_CARD_FAILURE,
     ADD_CARD_START,
     ADD_CARD_SUCCESS,
     ADD_CARD_FAILURE,
@@ -19,6 +22,7 @@ import {
 const initialState = {
     cards: [],
     cardById: [],
+    usersCard: [],
     isLoggingIn: false,
     credentials: [],
     fetchingCards: false,
@@ -81,6 +85,25 @@ const reducer = (state = initialState, action) => {
                 cardById: action.payload
             };
         case GET_CARD_BY_ID_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                fetchingCards: false
+            };
+        case GET_USERS_CARD_START:
+            return {
+                ...state,
+                error: '',
+                fetchingCards: true
+            };
+        case GET_USERS_CARD_SUCCESS:
+            return {
+                ...state,
+                error: '',
+                fetchingCards: false,
+                usersCard: action.payload
+            };
+        case GET_USERS_CARD_FAILURE:
             return {
                 ...state,
                 error: action.payload,

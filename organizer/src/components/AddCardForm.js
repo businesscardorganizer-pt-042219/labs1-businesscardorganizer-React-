@@ -20,6 +20,7 @@ class AddCardForm extends React.Component {
         },
         userName: "Kasia" // we need to change it to the username data
     }
+    /* Create user's profile card */
     submit = e => {
         e.preventDefault();
         const newCard = {
@@ -31,6 +32,7 @@ class AddCardForm extends React.Component {
             // email: this.state.email,
             linkedIn: this.state.data.linkedIn,
             github: this.state.data.gitHub,
+            own_flag: true
             // file: this.state.file
         }
         console.log(newCard);
