@@ -40,15 +40,18 @@ export const addCard = newCard => dispatch => {
     });
 };
 
-export const CARD_DATA_START = "CARD_DATA_START";
-export const CARD_DATA_UPDATED = "CARD_DATA_SUCCESS";
-export const CARD_DATA_FAILURE = "CARD_DATA_FAILURE";
+export const UPDATE_CARD_START = "UPDATE_CARD_START";
+export const UPDATE_CARD_UPDATED = "UPDATE_CARD_SUCCESS";
+export const UPDATE_CARD_FAILURE = "UPDATE_CARD_FAILURE";
 
-export const cardData = id => {
+export const updateData = id => dispatch => {
+  dispatch({ type: UPDATE_CARD_START });
   axios
     .put(`https://business-card-organizer.herokuapp.com/api/cards/${id}`, id)
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+    .then(res => dispatch({ type: UPDATE_CARD_START, payload: res.data }))
+    .catch(err =>
+      dispatch({ type: UPDATE_CARD_FAILURE, payload: err.response })
+    );
 };
 
 export const DELETE_CARD_START = "DELETE_CARD_START";

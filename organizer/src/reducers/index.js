@@ -10,13 +10,17 @@ import {
   ADD_CARD_FAILURE,
   DELETE_CARD_START,
   DELETE_CARD_SUCCESS,
-  DELETE_CARD_FAILURE
+  DELETE_CARD_FAILURE,
+  UPDATE_CARD_START,
+  UPDATE_CARD_SUCCESS,
+  UPDATE_CARD_FAILURE
 } from "../actions";
 
 const initialState = {
-  user: [],
+  cards: [],
   error: "",
-  fetchData: false
+  fetchData: false,
+  updatingCard: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,7 +34,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_DATA_SUCCESS:
       return {
         ...state,
-        user: [...state.user, action.payload],
+        cards: [...state.cards, action.payload],
         fetchData: false
       };
     case FETCH_DATA_FAILURE:
@@ -75,6 +79,24 @@ const reducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
         deletingcard: false
+      };
+    case UPDATE_CARD_START:
+      return {
+        ...state,
+        error: "",
+        updatingCard: true
+      };
+    case UPDATE_CARD_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        cards: action.payload
+      };
+    case UPDATE_CARD_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        updatingCard: false
       };
 
     default:
