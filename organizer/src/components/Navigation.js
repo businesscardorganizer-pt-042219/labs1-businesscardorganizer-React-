@@ -1,3 +1,47 @@
+<<<<<<< HEAD
+import React, { Component } from "react";
+import { Link, NavLink } from "react-router-dom";
+
+// import "../styles/navigation.css";
+// import Logo from "../img/logo.png";
+// import LogoutIcon from "../img/logout-icon.png";
+// import UserIcon from "../img/user-icon.png";
+
+class Navigation extends Component {
+  logout = e => {
+    localStorage.removeItem("token");
+  };
+  render() {
+    return (
+      <div className="navigation">
+        <div className="nav-logo-wrapper">
+          <img className="nav-logo" src="" alt="logo of the app" />
+        </div>
+        <div className="nav-options">
+          <NavLink activeClassName="active" to="/user-list">
+            Collections
+          </NavLink>
+
+          <Link to="/" className="link-nav-user">
+            <img className="nav-user" src="" alt="gender neutral user" />
+          </Link>
+
+          <Link to="/login" className="link-nav-logout">
+            <img
+              className="nav-logout"
+              src=""
+              onClick={this.logout}
+              alt="log out"
+            />
+          </Link>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Navigation;
+=======
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -30,3 +74,4 @@ class Navigation extends Component {
 }
 
 export default Navigation;
+>>>>>>> 434eb6df8f9f93f1b8e444a7d566da2f190b2e7e

@@ -85,8 +85,15 @@
 .user-controls {
   width: 10%;
   display: flex;
+<<<<<<< HEAD
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  font-size: 20px;
+=======
   align-self: flex-start;
   justify-content: flex-end;
+>>>>>>> 434eb6df8f9f93f1b8e444a7d566da2f190b2e7e
 }
 .user-controls p {
   font-size: 20px;
