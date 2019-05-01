@@ -17,6 +17,7 @@
 }
 .user-card {
   width: calc(100% - 30px);
+  min-height: 35vh;
   border-radius: 3px;
   display: flex;
   /* margin: 20px auto; */
@@ -117,7 +118,7 @@
 .single-card-wrapper .single-card {
   width: 100%;
   display: flex;
-  margin-top: 30px;
+  margin: 30px 0;
   justify-content: space-around;
 }
 .single-card .user-card {
