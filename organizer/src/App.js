@@ -10,6 +10,8 @@ import SaveCardPage from './components/SaveCardPage';
 import SingleCardPage from './components/SingleCardPage';
 
 class App extends Component {
+  handleProfile = () => {};
+
   render() {
     return (
       <div className="App">

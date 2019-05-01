@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 /* REGISTER */
 export const REGISTER_START = "REGISTER_START";
