@@ -9,6 +9,8 @@ import UserProfile from "./components/UserProfile";
 import SaveCardPage from './components/SaveCardPage';
 
 class App extends Component {
+  handleProfile = () => {};
+
   render() {
     return (
       <div className="App">
