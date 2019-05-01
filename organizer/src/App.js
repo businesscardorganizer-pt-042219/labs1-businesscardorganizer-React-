@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import UserList from "./components/UserList";
 import UserProfile from "./components/UserProfile";
-import PrivateRoute from "./components/PrivateRoute";
+// import PrivateRoute from "./components/PrivateRoute";
+import LoginPage from "./components/LoginPage";
+import signupPage from "./components/SignUpPage";
 
 class App extends Component {
   handleProfile = () => {};
@@ -11,6 +13,8 @@ class App extends Component {
     // const { user } = this.state;
     return (
       <div className="App">
+        <Route exact path="/" component={LoginPage} />
+        <Route path="/sign-up" component={signupPage} />
         <Route
           exact
           path="/UserList"

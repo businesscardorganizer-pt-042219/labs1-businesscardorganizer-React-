@@ -6,7 +6,7 @@ export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
 /* action creators here */
 
-export const getData = () => dispatch => {
+export const getCards = () => dispatch => {
   dispatch({ type: FETCH_DATA });
   axios
     .get("https://business-card-organizer.herokuapp.com/api/users/cards/")
@@ -14,6 +14,31 @@ export const getData = () => dispatch => {
       dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
     })
     .catch(err => dispatch({ type: FETCH_DATA_FAILURE, payload: err }));
+};
+
+export const LOGIN_START = "LOGIN_START";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+
+export const login = credentials => dispatch => {
+  dispatch({ type: LOGIN_START });
+  localStorage.removeItem("token");
+  return axios
+    .post(/*'link to server'*/ credentials)
+    .then(res => {
+      localStorage.setItem("token", res.data.payload);
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data,
+        credentials: credentials
+      });
+    })
+    .catch(err => {
+      if (err.response.status === 403) {
+        localStorage.removeItem("token");
+      }
+      dispatch({ type: LOGIN_FAILURE, payload: err.response.message });
+    });
 };
 
 export const ADD_CARD_START = "ADD_CARD_START";
@@ -41,7 +66,7 @@ export const addCard = newCard => dispatch => {
 };
 
 export const UPDATE_CARD_START = "UPDATE_CARD_START";
-export const UPDATE_CARD_UPDATED = "UPDATE_CARD_SUCCESS";
+export const UPDATE_CARD_UPDATED = "UPDATE_CARD_UPDATED";
 export const UPDATE_CARD_FAILURE = "UPDATE_CARD_FAILURE";
 
 export const updateData = id => dispatch => {

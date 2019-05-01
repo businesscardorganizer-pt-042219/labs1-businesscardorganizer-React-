@@ -1,56 +1,54 @@
-import React from "react";
-import dummydata from "../dummydata";
-// import user from "./User";
-import { Link } from "react-router-dom";
-import QRcode from "qrcode-react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getCards, deleteCard } from "../actions";
 
-const Profile = props => {
-  console.log(props);
+import Navigation from "./Navigation";
+import AddCardForm from "./AddCardForm";
+import QRCode from "qrcode-react";
 
-  const id = props.match.params.id;
-  const profile = dummydata.find(user => `${user.id}` === id);
-  return (
-    <div>
-      <h2>
-        {profile.first_name} {profile.last_name}
-      </h2>
-      <p>
-        Email:
-        {profile.email}
-      </p>
-      {/* <p>Work Title: {profile.work_title}</p>
-      <address />
+// import "../styles/userProfile.css";
 
-      <p>City: {profile.country}</p>
-      <p>Company: {profile.company_name}</p>
-      <p>Cell Phone: {profile.cell_phone}</p>
-      <p>Work Phone: {profile.work_phone}</p>
-      <p>URL: {profile.URL}</p> */}
+class UserProfile extends Component {
+  state = {
+    displayForm: false,
+    valueForQRCode: "",
+    inputValue: ""
+  };
+  displayForm = e => {
+    e.preventDefault();
+    this.setState({ displayForm: true });
+  };
+  hideForm = () => {
+    this.setState({ displayForm: false });
+  };
+  textInputValue = () => {
+    this.setState({ valueForQRcode: this.state.inputValue });
+  };
+  render() {
+    return (
+      <div className="user-profile-wrapper">
+        <Navigation />
+        <AddCardForm />
 
-      {/* <p>
-        LinkedIn:
-        <a href={profile.LinkedIn} alt="linkedin" />
-      </p>
-      <p>
-        Github:
-        <a href={profile.Github} alt="github" />
-      </p> */}
-
-      <div>
-        <Link to={props.Github}>
-          <QRcode
-            value={profile.Github}
-            bgColor="#FFFFFF"
-            fgColor="#000000"
-            level="L"
-          />
-        </Link>
+        {/* QRCode example. We should add dinamic route with an id of particular card in there */}
+        <QRCode
+          value={this.state.valueForQRCode}
+          level="M"
+          fgcolor="#000000"
+          bgcolor="#FFFFFF"
+        />
       </div>
-      {/* 
-      <p>Github: {profile.gitub}</p>
-      <p>LinkedIn: {profile.linkedIn}</p> */}
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default Profile;
+const mapStateToProps = state => ({
+  cards: state.cards,
+  getCards: state.getCards,
+  deletingCard: state.deletingCard
+});
+
+export default connect(
+  mapStateToProps,
+  { getCards, deleteCard }
+)(UserProfile);

@@ -20,7 +20,11 @@ const initialState = {
   cards: [],
   error: "",
   fetchData: false,
-  updatingCard: false
+  credentials: [],
+  updatingCard: false,
+  loggingIn: false,
+  storingCard: false,
+  deletingCard: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -42,6 +46,24 @@ const reducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
         fetchData: false
+      };
+    case LOGIN_START:
+      return {
+        ...state,
+        error: "",
+        logginIn: true
+      };
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        logginIn: true,
+        credentials: action.payload
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        logginIn: false
       };
 
     case ADD_CARD_START:
