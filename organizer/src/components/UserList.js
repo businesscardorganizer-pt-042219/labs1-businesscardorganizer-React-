@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCards, deleteCard} from '../actions';
+
 
 import User from "./User";
 import Navigation from "./Navigation";
@@ -10,6 +11,7 @@ import Navigation from "./Navigation";
 import SpinnerDataLoad from "./SpinnerDataLoad";
 
 import "./user.css";
+
 
 class UserList extends React.Component {
   constructor() {
@@ -24,6 +26,7 @@ class UserList extends React.Component {
   onClick = (id) => {
     this.props.deleteCard(id);
   }
+
   render() {
     return (
       <div className="user-list">
