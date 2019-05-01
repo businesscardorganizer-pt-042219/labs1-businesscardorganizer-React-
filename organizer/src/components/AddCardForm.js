@@ -20,6 +20,7 @@ class AddCardForm extends React.Component {
         },
         userName: "Kasia" // we need to change it to the username data
     }
+    /* Create user's profile card */
     submit = e => {
         e.preventDefault();
         const newCard = {
@@ -27,10 +28,11 @@ class AddCardForm extends React.Component {
             last_name: this.state.data.lastName,
             company_name: this.state.data.company,
             work_title: this.state.data.title,
-            work_phone: this.state.data.phone,
+            cell_phone: this.state.data.phone,
             // email: this.state.email,
             linkedIn: this.state.data.linkedIn,
             github: this.state.data.gitHub,
+            own_flag: true
             // file: this.state.file
         }
         console.log(newCard);
@@ -50,6 +52,7 @@ class AddCardForm extends React.Component {
                 fileName: 'Choose a file'
             }
         })
+        this.props.hideForm();
     }
     handleChange = e => {
         this.setState({
@@ -155,6 +158,7 @@ class AddCardForm extends React.Component {
                         {(this.state.data.firstName || this.state.data.lastName || this.state.data.company || this.state.data.title || this.state.data.phone || this.state.data.email || this.state.data.linkedIn || this.state.data.gitHub !== '') ? (<button className="btn">Create card</button>) : (<button className="btn not-active">Create card</button>)}
                     </form>
                 </div>
+                <div className="hide-form-arrow" onClick={this.props.hideForm}>⬆︎</div>
             </div>
         )
     }

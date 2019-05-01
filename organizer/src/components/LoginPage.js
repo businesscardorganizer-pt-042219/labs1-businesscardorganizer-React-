@@ -6,6 +6,7 @@ import { login } from '../actions';
 import '../styles/loginPage.css';
 
 import Logo from '../img/logo.png';
+import SpinnerDots from './SpinnerDots';
 
 class LoginPage extends React.Component {
     state = {
@@ -16,11 +17,9 @@ class LoginPage extends React.Component {
     }
     login = e => {
         e.preventDefault();
-        console.log(this.state.credentials);
         this.props.login(this.state.credentials)
             .then(() => {
-                this.props.history.push('/');
-            })
+                this.props.history.push('/');            })
         this.setState({
             credentials: {
                 ...this.state.credentials,
@@ -65,7 +64,9 @@ class LoginPage extends React.Component {
                             required
                         />
                         {/* Check if user started to type something */}
-                        {(this.state.credentials.username || this.state.credentials.password !== '') ? (<button className="btn">Log in</button>) : (<button className="btn not-active">Log in</button>)}
+                        {(!this.props.isLoggingIn &&(this.state.credentials.username || this.state.credentials.password !== '')) ? (<button className="btn">Log in</button>) : (<button className="btn not-active">Log in</button>)}
+                        {/* Show bubbling dots animation while loggin with the server */}
+                        {this.props.isLoggingIn && <button className="btn not-active"><SpinnerDots/></button>}
                     </form>
                     <div className='login-other-options'>
                         <p>Forgot password?</p>

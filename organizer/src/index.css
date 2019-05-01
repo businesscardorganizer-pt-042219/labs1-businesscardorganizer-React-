@@ -130,4 +130,9 @@ table {
 
 .App {
   width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(34, 34, 34);
+}
+h1, h2, h3, h4, h5, h6, button, .navigation {
+  font-family: 'Cabin', Verdana, sans-serif;
 }

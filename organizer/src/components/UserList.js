@@ -6,8 +6,9 @@ import { getCards, deleteCard} from '../actions';
 
 
 import User from "./User";
-import UserProfile from "./UserProfile";
 import Navigation from "./Navigation";
+
+import SpinnerDataLoad from "./SpinnerDataLoad";
 
 import "./user.css";
 
@@ -16,35 +17,33 @@ class UserList extends React.Component {
   constructor() {
     super();
     this.state = {
+      card: []
     };
   }
   componentDidMount() {
     this.props.getCards();
   }
   onClick = (id) => {
-    this.props.deleteCard(id)
-      .then(window.location.reload())
+    this.props.deleteCard(id);
   }
 
   render() {
     return (
-      <Link to={`/UserList/${UserProfile}`} className="user-list">
-        <h1>
-          {this.state.user.first_name} {this.state.user.last_name}
-        </h1>
       <div className="user-list">
         <Navigation />
         <div className="active-user-list">
-          {!this.props.fetchingCards && this.props.cards.map(card => <User key={card.id} card={card} onClick={this.onClick} />)}
+          { this.props.fetchingCards ? <SpinnerDataLoad /> :
+          (this.props.cards.map(card => <User key={card.id} card={card} onClick={this.onClick} />))}
         </div>
-      </Link>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
   cards: state.cards,
-  fetchingCards: state.fetchingCards
+  fetchingCards: state.fetchingCards,
+  deletingCard: state.deletingCard
 });
 
 export default connect(mapStateToProps, { getCards, deleteCard })(UserList);

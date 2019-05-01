@@ -1,51 +1,56 @@
 import React from "react";
-// import { Route } from "react-router-dom";
-import dummydata from "../dummydata";
-import { Link } from "react-router-dom";
-// import PrivateRoute from "./components/PrivateRoute";
+
+import GithubIcon from "../img/github-icon.png";
+import LinkedinIcon from "../img/linkedin-icon.png";
+import PhoneIcon from "../img/phone-icon.png";
+import EmailIcon from "../img/email-icon.png";
+
 import "./user.css";
 
-function User(props) {
-  const handleProfile = event => {
-    event.preventDefault();
-    props.history.push("/UserProfile"); /*the link to the profile will be "/" as we discussed on the last meeting (profile === homepage) */
-  };
 
-  console.log(props);
-  // const id = props.match.params.id;
-  // const profile = dummydata.find(user => `${user.id}` === id);
+function User(props) {
   return (
     <Link to={`/UserList/${props.user.id}`} className="user-card">
       <div className="user-header">
-        <h2>
-          {props.card.first_name} {props.card.last_name}
-        </h2>
-        <p>
-          Company: {props.card.company_name}
-        </p>
-        <p>
-          Title: {props.card.work_title}
-        </p>
-        <p>Phone: {props.card.work_phone}</p>
-        {/* <p>
-          Email:
-          {props.card.email}
-        </p> */}
-        <p>
-          LinkedIn:
-          <a href={props.card.linkedIn} alt="linkedin" />
-        </p>
-        <p>
-          Github:
-          <a href={props.card.github} alt="github" />
-        </p>
+        <header>
+          <h2>
+            {props.card.first_name} {props.card.last_name}
+          </h2>
+          {/* There're both title and company name in profile*/}
+          {(props.card.work_title && props.card.company_name) && (<p className="who-is">
+            {props.card.work_title} at {props.card.company_name}
+          </p>)}
+          {/* There's only title in profile*/}
+          {(props.card.work_title && !props.card.company_name) && (<p className="who-is">{props.card.work_title}</p>)}
+          {/* There's only company name in profile*/}
+          {(!props.card.work_title && props.card.company_name) && (<p className="who-is">{props.card.company_name}</p>)}
+        </header>
+        
+        <div className="card-body">
+          <h4>Contact information</h4>
+          <div className="card-body-item">
+            <img className="phone-icon" src={PhoneIcon} alt="" />
+            <div>{props.card.cell_phone}</div>
+          </div>
+          <div className="card-body-item">
+            <img className="email-icon" src={EmailIcon} alt="" />
+            <div>{props.card.email}</div>
+          </div>
+          <div className="card-body-item">
+            <img className="linkedin-icon" src={LinkedinIcon} alt="" />
+            <a href={props.card.linkedIn} alt="linkedin">LinkedIn</a>
+          </div>
+          <div className="card-body-item">
+            <img className="github-icon" src={GithubIcon} alt="" />
+            <a href={props.card.github} alt="github">GitHub</a>
+          </div>
+        </div>
+
       </div>
-      {/* <div className="user-img">
-        <img src={props.card.avatar} alt="user-avatar" />
-      </div> */} /* we have no storage for avatar in databse as I can see */
+      
       <div className="user-controls">
+        <p className="user-edit" /* Add link to the edit form page here */>✎</p>
         <p className="user-delete" onClick={() => props.onClick(props.card.id)}>✘</p>
-        <p className="user-edit" /* Add onClick event here */>✎</p>
       </div>
     </Link>
   );

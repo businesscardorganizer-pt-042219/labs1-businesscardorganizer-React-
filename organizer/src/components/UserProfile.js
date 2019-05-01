@@ -1,46 +1,55 @@
-import React from "react";
-import dummydata from "../dummydata";
-// import user from "./User";
-import QRcode from "qrcode-react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getCards, deleteCard} from '../actions';
 
 import Navigation from "./Navigation";
 import AddCardForm from "./AddCardForm";
+import QRCode from "../../node_modules/qrcode-react/lib/index";
+
+import "../styles/userProfile.css";
+
+import AddIcon from "../img/add-icon.png";
+
+class UserProfile extends Component {
+    state = {
+        displayForm: false
+    }
+    componentDidMount() {
+        // this.props.getUserCard(/* What type of id should I put there? */);
+    }
+    displayForm = e => {
+        e.preventDefault();
+        this.setState({ displayForm: true});
+    }
+    hideForm = () => {
+        this.setState({ displayForm: false});
+    }
+    render() {
+      return (
+        <div className="user-profile-wrapper">
+            <Navigation />
+            <div className="add-card-wrapper">
+                
+                { this.state.displayForm ? (<AddCardForm hideForm={this.hideForm} />) : (<img src={AddIcon} className="add-card-icon" alt="" onClick={this.displayForm} />) }
 
 
-const Profile = props => {
-  console.log(props);
-  const id = props.match.params.id;
-  const profile = dummydata.find(user => `${user.id}` === id);
-  return (
-    <div className="user-profile-wrapper">
-      <Navigation />
-    { profile === underfind ? (
-          <AddCardForm /> 
-      ) : (
-          <div className="user-profile-card">
-            <h2>
-              {profile.first_name} {profile.last_name}
-            </h2>
-            <p>
-              Email:
-              {profile.email}
-            </p>
-            {/* <p>
-              LinkedIn:
-              <a href={profile.LinkedIn} alt="linkedin" />
-            </p>
-            <p>
-              Github:
-              <a href={profile.Github} alt="github" />
-            </p> */}
+                {/* QRCode example. We should add dinamic route with an id of particular card in there */}
 
-            <div>
-              <QRcode value="" bgColor="#FFFFFF" fgColor="#000000" level="L" />
+                <QRCode className='qrcode' value='https://www.youtube.com/watch?v=oyB5OZo3XsY'
+                    size={300}
+                    fgColor='rgb(39, 39, 39)'
+                    bgColor='transparent'
+                    logo='http://google.com'/>
             </div>
-          </div>
-      )
-    </div>
-  );
-};
+        </div>
+    );
+  }
+}
 
-export default Profile;
+const mapStateToProps = state => ({
+    usersCard: state.usersCard,
+    fetchingCards: state.fetchingCards,
+    deletingCard: state.deletingCard
+  });
+  
+export default connect(mapStateToProps, { getCards, deleteCard })(UserProfile);
