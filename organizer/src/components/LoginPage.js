@@ -37,6 +37,23 @@ class LoginPage extends React.Component {
         })
     }
     render() {
+        // check if user is logging in or not
+        // if yes -> display animation
+        // if not -> check if he started typing in inputs
+        // if yes -> display active button
+        // if not -> display non-active button
+        const isLoggingIn = this.props.isLoggingIn;
+        let button;
+
+        if (isLoggingIn === true) {
+        button = <button className="btn not-active"><SpinnerDots/></button>;
+        } else {
+            if (this.state.credentials.username === '' && this.state.credentials.password === '') {
+                button = <button className="btn not-active">Log in</button>;
+            } else {
+                button = <button className="btn">Log in</button>;
+            }
+        }
         return (
             <div className='login-page-wrapper'>
                 <div className="login-side">
@@ -63,10 +80,7 @@ class LoginPage extends React.Component {
                             onChange={this.handleChange}
                             required
                         />
-                        {/* Check if user started to type something */}
-                        {(!this.props.isLoggingIn &&(this.state.credentials.username || this.state.credentials.password !== '')) ? (<button className="btn">Log in</button>) : (<button className="btn not-active">Log in</button>)}
-                        {/* Show bubbling dots animation while loggin with the server */}
-                        {this.props.isLoggingIn && <button className="btn not-active"><SpinnerDots/></button>}
+                        {button}
                     </form>
                     <div className='login-other-options'>
                         <p>Forgot password?</p>
