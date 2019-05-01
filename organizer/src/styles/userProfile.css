@@ -1,0 +1,17 @@
+.user-profile-wrapper {
+    width: 100%;
+}
+.user-profile-wrapper .navigation {
+    margin-bottom: 25px;
+}
+.add-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user-profile-wrapper .add-card-icon {
+    width: 5%;
+    margin-bottom: 25px;
+}
+

@@ -1,9 +1,9 @@
 import React from "react";
 
-// import GithubIcon from "../img/github-icon.png";
-// import LinkedinIcon from "../img/linkedin-icon.png";
-// import PhoneIcon from "../img/phone-icon.png";
-// import EmailIcon from "../img/email-icon.png";
+import GithubIcon from "../img/github-icon.png";
+import LinkedinIcon from "../img/linkedin-icon.png";
+import PhoneIcon from "../img/phone-icon.png";
+import EmailIcon from "../img/email-icon.png";
 
 import "./user.css";
 

@@ -1,41 +1,113 @@
-.user-card {
-  border-radius: 5px;
-  display: flex;
-  max-height: 200px;
-  margin: 10px auto;
-  padding: 1rem;
-  width: 90%;
-  color: #000;
-  background-color: #fff;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-}
-.user-card h2 {
-  font-size: 20px;
-  font-weight: bold;
-}
-.user-car p {
-  width: 100px;
-}
-
 .user-list {
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+.active-user-list {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.user-card {
+  width: 40%;
+  border-radius: 3px;
+  display: flex;
+  margin: 20px auto;
+  padding: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  transition: all .2s ease-in-out;
+}
+.user-card:hover {
+  transform: scale(1.1);
+  background: rgba(91, 179, 176, .1);
 }
 .user-header {
   display: flex;
   flex-direction: column;
+  width: 70%;
+  margin-left: 5%;
+}
+.user-header h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5BB3B0;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.user-header p {
+  margin-bottom: 10px;
+}
+.user-header p span {
+  font-weight: 550;
+  margin-right: 15px;
+}
+.user-header header  {
+  border-bottom: 1px solid #5BB3B0;
+  padding-left: 2%;
+  margin-bottom: 15px;
+}
+.card-body {
+  padding-left: 2%;
+}
+.user-card h4 {
+  margin-bottom: 15px;
+}
+.card-body .card-body-item {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.card-body .card-body-item:last-of-type {
+  margin-bottom: 0;
+}
+.card-body-item img {
+  width: 6%;
+  margin-right: 10px;
+}
+.card-body-item a {
+  text-decoration: none;
+  color: rgb(34, 34, 34);
+}
+.card-body-item div {
+  width: 80%;
+  font-size: 16px;
+}
+.card-body-item a:hover {
+  text-decoration: underline;
+}
+.user-controls {
+  width: 10%;
+  display: flex;
+<<<<<<< HEAD
+  flex-direction: column;
   width: 50%;
   align-items: center;
   font-size: 20px;
+=======
+  align-self: flex-start;
+  justify-content: flex-end;
+>>>>>>> 434eb6df8f9f93f1b8e444a7d566da2f190b2e7e
 }
-.user-img {
-  justify-content: space-between;
-  width: 50%;
+.user-controls p {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+  color: rgb(196, 196, 196);
 }
-.user-img img {
-  height: 50px;
-  width: 50px;
+.user-controls p:hover {
+  color: #5BB3B0;
+  cursor: pointer;
+}
+.user-delete {
+  margin-right: 15px;
+}
+.user-edit {
+  transform: scale(-1, 1);
 }
