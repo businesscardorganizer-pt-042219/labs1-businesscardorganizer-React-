@@ -9,11 +9,17 @@
   display: flex;
   flex-wrap: wrap;
 }
-.user-card {
+.active-user-list>a {
   width: 40%;
+  margin: 20px auto;
+  text-decoration: none;
+  color: rgb(34, 34, 34);
+}
+.user-card {
+  width: calc(100% - 30px);
   border-radius: 3px;
   display: flex;
-  margin: 20px auto;
+  /* margin: 20px auto; */
   padding: 15px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   justify-content: space-between;
@@ -102,4 +108,18 @@
 }
 .user-edit {
   transform: scale(-1, 1);
+}
+
+/* for single card page */
+.single-card-wrapper {
+  width: 100%;
+}
+.single-card-wrapper .single-card {
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-around;
+}
+.single-card .user-card {
+  width: 40%;
 }

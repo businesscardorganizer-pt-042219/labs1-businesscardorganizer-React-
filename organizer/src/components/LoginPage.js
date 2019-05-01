@@ -17,9 +17,14 @@ class LoginPage extends React.Component {
     }
     login = e => {
         e.preventDefault();
+        console.log(this.props.location);
         this.props.login(this.state.credentials)
             .then(() => {
-                this.props.history.push('/');            })
+                // const route = '/';
+                // const route = this.props.location.pathname || '/';
+                // only fires if login call is successful
+                this.props.history.push('/');
+            })
         this.setState({
             credentials: {
                 ...this.state.credentials,
@@ -43,10 +48,10 @@ class LoginPage extends React.Component {
         // if yes -> display active button
         // if not -> display non-active button
         const isLoggingIn = this.props.isLoggingIn;
-        let button;
+        let button; // button declaration
 
         if (isLoggingIn === true) {
-        button = <button className="btn not-active"><SpinnerDots/></button>;
+            button = <button className="btn not-active"><SpinnerDots/></button>;
         } else {
             if (this.state.credentials.username === '' && this.state.credentials.password === '') {
                 button = <button className="btn not-active">Log in</button>;

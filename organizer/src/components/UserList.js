@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCards, deleteCard} from '../actions';
@@ -29,7 +30,11 @@ class UserList extends React.Component {
         <Navigation />
         <div className="active-user-list">
           { this.props.fetchingCards ? <SpinnerDataLoad /> :
-          (this.props.cards.map(card => <User key={card.id} card={card} onClick={this.onClick} />))}
+          (this.props.cards.map(card => (
+            <Link to={`/user-list/${card.id}`}>
+              <User key={card.id} card={card} onClick={this.onClick} />
+            </Link>)
+          ))}
         </div>
       </div>
     );
