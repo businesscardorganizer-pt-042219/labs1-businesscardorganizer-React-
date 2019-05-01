@@ -61,7 +61,12 @@ function User(props) {
       </div> */}
 
       <div className="user-controls">
-        <p className="user-edit" /* Add link to the edit form page here */>✎</p>
+        <p
+          className="user-edit"
+          onClick={() => props.handleUpdate(props.card.id)}
+        >
+          ✎
+        </p>
         <p className="user-delete" onClick={() => props.onClick(props.card.id)}>
           ✘
         </p>
