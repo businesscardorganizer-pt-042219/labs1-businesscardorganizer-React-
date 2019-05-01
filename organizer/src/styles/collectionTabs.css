@@ -33,7 +33,7 @@
     background: #5BB3B0;
     color: white;
     box-shadow: inset -.5px -.5px 10px #21827F;
-    border: none;
+    border: 1px solid transparent;
 }
 .add-to-collection {
     width: 15%;
