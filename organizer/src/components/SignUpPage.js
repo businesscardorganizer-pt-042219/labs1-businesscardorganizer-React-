@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import { login } from '../actions';
+import { register } from '../actions';
 
 import '../styles/loginPage.css';
 
@@ -14,12 +14,13 @@ class SignUpPage extends React.Component {
         credentials: {
             username: '',
             password: '',
-            email: ''
+            // email: ''
         }
     }
     signUp = e => {
         e.preventDefault();
-        this.props.login(this.state.credentials)
+        console.log(this.state.credentials);
+        this.props.register(this.state.credentials)
             .then(() => {
                 this.props.history.push('/');
             })
@@ -28,7 +29,7 @@ class SignUpPage extends React.Component {
                 ...this.state.credentials,
                 username: '',
                 password: '',
-                email: ''
+                // email: ''
             }
         })
     }
@@ -41,6 +42,23 @@ class SignUpPage extends React.Component {
         })
     }
     render() {
+        // check if user is signing up or not
+        // if yes -> display animation
+        // if not -> check if he started typing in inputs
+        // if yes -> display active button
+        // if not -> display non-active button
+        const isSigningIn = this.props.isSigningIn;
+        let button; // button declaration
+
+        if (isSigningIn === true) {
+            button = <button className="btn not-active"><SpinnerDots/></button>;
+        } else {
+            if (this.state.credentials.username === '' && this.state.credentials.password === '' && this.state.credentials.email === '') {
+                button = <button className="btn not-active">Sign Up</button>;
+            } else {
+                button = <button className="btn">Sign Up</button>;
+            }
+        }
         return (
             <div className='sign-up-wrapper'>
                 <div className="sign-up-side">
@@ -63,8 +81,6 @@ class SignUpPage extends React.Component {
                             type='email'
                             name='email'
                             placeholder='email'
-                            value={this.state.credentials.email}
-                            onChange={this.handleChange}
                             required
                         />
                         <input 
@@ -75,10 +91,7 @@ class SignUpPage extends React.Component {
                             onChange={this.handleChange}
                             required
                         />
-                        {/* Check if user started to type something */}
-                        {(!this.props.isLoggingIn &&(this.state.credentials.username || this.state.credentials.password || this.state.credentials.email !== '')) ? (<button className="btn">Sign Up</button>) : (<button className="btn not-active">Sign Up</button>)}
-                        {/* Show bubbling dots animation while loggin with the server */}
-                        {this.props.isLoggingIn && <button className="btn not-active"><SpinnerDots/></button>}
+                        {button}
                     </form>
                     <div className='sign-up-other-options'>
                         <Link to="/login">
@@ -93,8 +106,8 @@ class SignUpPage extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      isLoggingIn: state.isLoggingIn
+        isSigningIn: state.isSigningIn
     };
 };
 
-export default connect(mapStateToProps, { login })(SignUpPage);
+export default connect(mapStateToProps, { register })(SignUpPage);

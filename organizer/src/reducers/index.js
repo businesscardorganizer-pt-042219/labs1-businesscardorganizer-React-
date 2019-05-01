@@ -1,4 +1,7 @@
 import { 
+    REGISTER_START,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE,
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
@@ -24,6 +27,7 @@ const initialState = {
     cardById: [],
     usersCard: [],
     isLoggingIn: false,
+    isSigningIn: false,
     credentials: [],
     fetchingCards: false,
     savingCard: false,
@@ -33,6 +37,25 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case REGISTER_START: {
+            return {
+                ...state,
+                isSigningIn: true
+            };
+        }
+        case REGISTER_SUCCESS: {
+            return {
+                ...state,
+                isSigningIn: false,
+                credentials: action.credentials
+            };
+        }
+        case REGISTER_FAILURE: {
+            return {
+                ...state,
+                isSigningIn: false
+            };
+        }
         case LOGIN_START: {
             return {
                 ...state,
