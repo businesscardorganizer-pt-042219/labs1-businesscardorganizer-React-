@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import GithubIcon from "../img/github-icon.png";
 import LinkedinIcon from "../img/linkedin-icon.png";
 import PhoneIcon from "../img/phone-icon.png";
@@ -10,6 +12,11 @@ import "./user.css";
 function User(props) {
   return (
     <div className="user-card">
+      <div className="user-controls">
+        <Link to={`/user-list/${props.card.id}`}><button className={`btn${props.hideControls}`}>Open</button></Link>
+        <p className="user-edit" /* Add link to the edit form page here */>✎</p>
+        <p className="user-delete" onClick={() => props.onClick(props.card.id)}>✘</p>
+      </div>
       <div className="user-header">
         <header>
           <h2>
@@ -61,10 +68,6 @@ function User(props) {
             )
           }
         </div>
-      </div>
-      <div className="user-controls">
-        <p className="user-edit" /* Add link to the edit form page here */>✎</p>
-        <p className="user-delete" onClick={() => props.onClick(props.card.id)}>✘</p>
       </div>
     </div>
   );

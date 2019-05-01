@@ -9,22 +9,17 @@
   display: flex;
   flex-wrap: wrap;
 }
-.active-user-list>a {
-  width: 40%;
-  margin: 20px auto;
-  text-decoration: none;
-  color: rgb(34, 34, 34);
-}
 .user-card {
-  width: calc(100% - 30px);
+  width: 40%;
   min-height: 35vh;
   border-radius: 3px;
   display: flex;
-  /* margin: 20px auto; */
+  flex-direction: column;
+  margin: 20px auto;
   padding: 15px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   cursor: pointer;
   text-align: left;
   transition: all .2s ease-in-out;
@@ -90,10 +85,35 @@
   text-decoration: underline;
 }
 .user-controls {
-  width: 10%;
+  width: 100%;
   display: flex;
-  align-self: flex-start;
+  align-self: center;
   justify-content: flex-end;
+}
+.user-controls a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.user-controls a button {
+  border: 1px solid rgb(196, 196, 196);
+  background: white;
+  color: rgb(196, 196, 196);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 3px 5px;
+}
+.user-controls a button:hover {
+  cursor: pointer;
+  border: 1px solid #5BB3B0;
+  background: white;
+  color: #5BB3B0;
+}
+.user-controls a button:focus {
+  outline: none;
 }
 .user-controls p {
   font-size: 20px;
@@ -105,11 +125,20 @@
   color: #5BB3B0;
   cursor: pointer;
 }
+.user-controls a {
+  margin-right: 10px;
+}
+.user-edit {
+  margin-right: 5px;
+}
 .user-delete {
   margin-right: 15px;
 }
 .user-edit {
   transform: scale(-1, 1);
+}
+.btn-hidden {
+  display: none;
 }
 
 /* for single card page */
@@ -120,8 +149,10 @@
   width: 100%;
   display: flex;
   margin: 30px 0;
+  padding: 20px 0;
   justify-content: space-around;
 }
-.single-card .user-card {
-  width: 40%;
+.single-card-wrapper .single-card .user-card {
+  padding-top: 40px;
+  margin: 0;
 }

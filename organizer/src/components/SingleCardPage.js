@@ -28,7 +28,7 @@ class SingleCardPage extends React.Component {
                     this.props.cardById ? 
                     (
                         <div className="single-card">
-                            <User card={this.props.cardById} />
+                            <User card={this.props.cardById} hideControls="-hidden"/>
                             <div className="qrcode-wrapper">
                                 <QRCode className='qrcode' value={route}
                                 size={300}

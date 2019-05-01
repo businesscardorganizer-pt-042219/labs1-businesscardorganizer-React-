@@ -33,10 +33,17 @@ class UserList extends React.Component {
         <Navigation />
         <div className="active-user-list">
           { this.props.fetchingCards ? <SpinnerDataLoad /> :
-          (this.props.cards.map(card => (
-            <Link to={`/user-list/${card.id}`}>
-              <User key={card.id} card={card} onClick={this.onClick} />
-            </Link>)
+          (this.props.cards
+            .filter(card => {
+                    if (card.own_flag !== "1") {
+                        return card
+                    } else {
+                        return null
+                    }
+                })
+            .map(card => (
+              <User key={card.id} card={card} onClick={this.onClick} hideControls=""/>
+            )
           ))}
         </div>
       </div>
