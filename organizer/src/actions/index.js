@@ -74,7 +74,7 @@ export const getCards = () => dispatch => {
   export const getCardById = (id) => dispatch => {
     dispatch({ type: GET_CARD_BY_ID_START });
     axios
-      .get(`https://business-card-organizer.herokuapp.com/api/users/cards/${id}`, id, {
+      .get(`https://business-card-organizer.herokuapp.com/api/users/cards/${id}`, {
         headers: { Authorization: localStorage.getItem("token") }
       })
       .then(res => {
