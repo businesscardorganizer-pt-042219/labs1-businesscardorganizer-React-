@@ -6,7 +6,7 @@ import LinkedinIcon from "../img/linkedin-icon.png";
 import PhoneIcon from "../img/phone-icon.png";
 import EmailIcon from "../img/email-icon.png";
 
-import "./user.css";
+import "../styles/user.css";
 
 
 function User(props) {

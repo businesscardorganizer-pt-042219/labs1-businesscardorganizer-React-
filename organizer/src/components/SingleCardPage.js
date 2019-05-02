@@ -7,7 +7,7 @@ import Navigation from "./Navigation";
 import SpinnerDataLoad from "./SpinnerDataLoad";
 import QRCode from "../../node_modules/qrcode-react/lib/index";
 
-import "./user.css";
+import "../styles/user.css";
 
 class SingleCardPage extends React.Component {
     componentDidMount(props) {

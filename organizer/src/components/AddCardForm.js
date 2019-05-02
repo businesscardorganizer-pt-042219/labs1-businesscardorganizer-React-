@@ -25,7 +25,8 @@ class AddCardForm extends React.Component {
     submit = e => {
         e.preventDefault();
         let ownFlagValue = false;
-        if(this.state.collections === "own_flag") {
+        console.log(this.state.collections);
+        if(this.state.collections === "own_flag" || this.state.collections === "") {
             ownFlagValue = true;
         } else {
             ownFlagValue = false;
@@ -42,7 +43,6 @@ class AddCardForm extends React.Component {
             own_flag: ownFlagValue
             // file: this.state.file
         }
-        console.log(newCard);
         this.props.addCard(newCard);
         this.setState({
             data: {

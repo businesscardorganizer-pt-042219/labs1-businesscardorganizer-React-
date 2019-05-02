@@ -9,8 +9,7 @@ import CollectionTabs from "./CollectionTabs";
 
 import SpinnerDataLoad from "./SpinnerDataLoad";
 
-import "./user.css";
-
+import "../styles/user.css";
 
 class UserList extends React.Component {
   constructor() {
@@ -32,9 +31,6 @@ class UserList extends React.Component {
         <Navigation />
         <CollectionTabs />
         <div className="active-user-list">
-          {/* Future tab component */}
-          {/* <-------- Future tab component */}
-
           { this.props.fetchingCards ? <SpinnerDataLoad /> :
           (this.props.cards
             .filter(card => {

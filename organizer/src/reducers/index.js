@@ -8,6 +8,9 @@ import {
     FETCH_DATA_START,
     FETCH_DATA_SUCCESS,
     FETCH_DATA_FAILURE,
+    FETCH_EVENTS_START,
+    FETCH_EVENTS_SUCCESS,
+    FETCH_EVENTS_FAILURE,
     GET_CARD_BY_ID_START,
     GET_CARD_BY_ID_SUCCESS,
     GET_CARD_BY_ID_FAILURE,
@@ -17,6 +20,9 @@ import {
     ADD_CARD_START,
     ADD_CARD_SUCCESS,
     ADD_CARD_FAILURE,
+    ADD_EVENT_START,
+    ADD_EVENT_SUCCESS,
+    ADD_EVENT_FAILURE,
     DELETE_CARD_START,
     DELETE_CARD_SUCCESS,
     DELETE_CARD_FAILURE
@@ -26,11 +32,14 @@ const initialState = {
     cards: [],
     cardById: [],
     usersCard: [],
+    events: [],
     isLoggingIn: false,
     isSigningIn: false,
     credentials: [],
     fetchingCards: false,
+    fetchingEvents: false,
     savingCard: false,
+    savingEvent: false,
     deletingCard: false,
     error: ''
 }
@@ -94,6 +103,25 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 fetchingCards: false
             };
+            case FETCH_EVENTS_START:
+            return {
+                ...state,
+                error: '',
+                fetchingEvents: true
+            };
+        case FETCH_EVENTS_SUCCESS:
+            return {
+                ...state,
+                error: '',
+                fetchingEvents: false,
+                events: action.payload
+            };
+        case FETCH_EVENTS_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                fetchingEvents: false
+            };
         case GET_CARD_BY_ID_START:
             return {
                 ...state,
@@ -149,6 +177,24 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload,
                 savingCard: false
+            };
+            case ADD_EVENT_START:
+            return {
+                ...state,
+                error: '',
+                savingEvent: true,
+            }
+        case ADD_EVENT_SUCCESS:
+            return {
+                ...state,
+                savingEvent: false,
+                events: [...state.events, action.payload]
+            };
+        case ADD_EVENT_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                savingEvent: false
             };
         case DELETE_CARD_START:
             return {
