@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCards, deleteCard} from '../actions';
@@ -7,6 +6,7 @@ import { getCards, deleteCard} from '../actions';
 
 import User from "./User";
 import Navigation from "./Navigation";
+import CollectionTabs from "./CollectionTabs";
 
 import SpinnerDataLoad from "./SpinnerDataLoad";
 
@@ -31,9 +31,24 @@ class UserList extends React.Component {
     return (
       <div className="user-list">
         <Navigation />
+        <CollectionTabs />
         <div className="active-user-list">
+          {/* Future tab component */}
+          {/* <-------- Future tab component */}
+
           { this.props.fetchingCards ? <SpinnerDataLoad /> :
-          (this.props.cards.map(card => <User key={card.id} card={card} onClick={this.onClick} />))}
+          (this.props.cards
+            .filter(card => {
+                    if (card.own_flag !== "1") {
+                        return card
+                    } else {
+                        return null
+                    }
+                })
+            .map(card => (
+              <User key={card.id} card={card} onClick={this.onClick} hideControls=""/>
+            )
+          ))}
         </div>
       </div>
     );
