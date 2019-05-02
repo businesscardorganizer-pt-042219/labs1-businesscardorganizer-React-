@@ -50,7 +50,7 @@ class CollectionTabs extends Component {
                                 <input
                                     type="text"
                                     name="name"
-                                    placeholder="new collection name"
+                                    placeholder="name of the collection"
                                     value={this.state.name}
                                     onChange={this.handleChange}
                                 />

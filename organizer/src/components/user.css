@@ -98,7 +98,7 @@
 }
 .user-controls a button {
   border: 1px solid rgb(196, 196, 196);
-  background: white;
+  background: transparent;
   color: rgb(196, 196, 196);
   text-transform: uppercase;
   font-size: 12px;
@@ -109,7 +109,6 @@
 .user-controls a button:hover {
   cursor: pointer;
   border: 1px solid #5BB3B0;
-  background: white;
   color: #5BB3B0;
 }
 .user-controls a button:focus {

@@ -35,7 +35,7 @@ class UserProfile extends Component {
 
                 {/* QRCode example. We should add dinamic route with an id of particular card in there */}
 
-                <QRCode className='qrcode' value='https://hopeful-ride-580fdd.netlify.com/user-list/3'
+                <QRCode className='qrcode' value='https://hopeful-ride-580fdd.netlify.com/user-list'
                     size={300}
                     fgColor='rgb(39, 39, 39)'
                     bgColor='transparent'/>

@@ -18,11 +18,18 @@ class AddCardForm extends React.Component {
             file: null,
             fileName: 'Choose a file'
         },
-        userName: "Kasia" // we need to change it to the username data
+        userName: "Kasia", // we need to change it to the username data
+        collections: "" // check if it's own card or new card for the collection
     }
     /* Create user's profile card */
     submit = e => {
         e.preventDefault();
+        let ownFlagValue = false;
+        if(this.state.collections === "own_flag") {
+            ownFlagValue = true;
+        } else {
+            ownFlagValue = false;
+        }
         const newCard = {
             first_name: this.state.data.firstName,
             last_name: this.state.data.lastName,
@@ -32,7 +39,7 @@ class AddCardForm extends React.Component {
             email: this.state.data.email,
             linkedIn: this.state.data.linkedIn,
             github: this.state.data.gitHub,
-            own_flag: true
+            own_flag: ownFlagValue
             // file: this.state.file
         }
         console.log(newCard);
@@ -72,6 +79,13 @@ class AddCardForm extends React.Component {
             }
         }
     }
+    isOwn = e => {
+        let selectedTag = e.target.value;
+        this.setState({
+            ...this.state,
+            collections: selectedTag
+        })
+    }
     render() {
         return (
             <div className='add-card-form-wrapper'>
@@ -98,6 +112,11 @@ class AddCardForm extends React.Component {
                             value={this.state.data.lastName}
                             onChange={this.handleChange}
                         />
+                        <select name="collections" id="select-form" onChange={this.isOwn}>
+                            <option value="own_flag">My cards</option>
+                            <option value="default">All cards</option>
+                            {/* here I need to map through all collections names and return option tags*/}
+                        </select>
                         <input
                             type='text'
                             name='company'

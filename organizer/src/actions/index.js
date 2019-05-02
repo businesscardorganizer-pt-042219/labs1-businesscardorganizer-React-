@@ -37,10 +37,11 @@ export const login = (credentials) => dispatch => {
             return dispatch({ type: LOGIN_SUCCESS, payload: res.data, credentials: credentials});
         })
         .catch(err => {
+            console.log(`ERROR LOGIN: ${err.message}`);
             if (err.response.status === 403) {
                 localStorage.removeItem("token");
             }
-            dispatch({ type: LOGIN_FAILURE, payload: err.response.message });
+            dispatch({ type: LOGIN_FAILURE, payload: err });
         });
 }
 

@@ -33,7 +33,8 @@ function User(props) {
         </header>
         
         <div className="card-body">
-          <h4>Contact information</h4>
+          {(props.card.cell_phone || props.card.email || props.card.linkedIn || props.card.github) && (<h4>Contact information</h4>)}
+          
           {/* Making checks for every item if we have info in DB, if not, we're just not showing this line */}
           {
             props.card.cell_phone && (
