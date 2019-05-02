@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { addCard } from '../actions';
+import { addCard, getEvents } from '../actions';
 
 import '../styles/addCardForm.css';
 
@@ -115,7 +115,9 @@ class AddCardForm extends React.Component {
                         <select name="collections" id="select-form" onChange={this.isOwn}>
                             <option value="own_flag">My cards</option>
                             <option value="default">All cards</option>
-                            {/* here I need to map through all collections names and return option tags*/}
+                            {this.props.events && (
+                                this.props.events.map(event => (<option value={event.event_name} key={event.id}>{event.event_name}</option>))
+                            )}
                         </select>
                         <input
                             type='text'
@@ -185,7 +187,9 @@ class AddCardForm extends React.Component {
 
 const mapStateToProps = state => ({
     cards: state.cards,
-    savingCard: state.savingCard
+    savingCard: state.savingCard,
+    events: state.events,
+    fetchingEvents: state.fetchingEvents
   });
   
-  export default connect(mapStateToProps, { addCard })(AddCardForm);
+  export default connect(mapStateToProps, { addCard, getEvents })(AddCardForm);
