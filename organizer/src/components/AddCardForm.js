@@ -58,7 +58,7 @@ class AddCardForm extends React.Component {
                 fileName: 'Choose a file'
             }
         })
-        this.props.hideForm();
+        this.props.hideForm();        
     }
     handleChange = e => {
         this.setState({

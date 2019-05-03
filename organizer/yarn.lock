@@ -2157,7 +2157,7 @@ babel-preset-react-app@^8.0.0:
     babel-plugin-macros "2.5.1"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
 
-babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -6279,7 +6279,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-"lodash@>=3.5 <5", lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5:
+"lodash@>=3.5 <5", lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.5:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
@@ -6569,6 +6569,11 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+moment@^2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -8082,7 +8087,7 @@ prompts@^2.0.1:
     kleur "^3.0.2"
     sisteransi "^1.0.0"
 
-prop-types@^15.5.9, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8184,7 +8189,15 @@ qrcode-react@^0.1.16:
   integrity sha512-FK+QCfFqCQMSxUE1byzglERJQkwKqXYvYMCS+/Ad2zACJOfoHkHHtRqsQQPji7lfb1y1qCXLvL+3eP1hAfg8Ng==
   dependencies:
     qr.js "0.0.0"
-    
+
+qrcode.react@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/qrcode.react/-/qrcode.react-0.9.3.tgz#91de1287912bdc5ccfb3b091737b828d6ced60c5"
+  integrity sha512-gGd30Ez7cmrKxyN2M3nueaNLk/f9J7NDRgaD5fVgxGpPLsYGWMn9UQ+XnDpv95cfszTQTdaf4QGLNMf3xU0hmw==
+  dependencies:
+    prop-types "^15.6.0"
+    qr.js "0.0.0"
+
 qs@6.5.2, qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
@@ -8264,16 +8277,6 @@ react-app-polyfill@^1.0.0:
     regenerator-runtime "0.13.2"
     whatwg-fetch "3.0.0"
 
-react-art-svg-renderer@^0.0.1-rc.8:
-  version "0.0.1-rc.8"
-  resolved "https://registry.yarnpkg.com/react-art-svg-renderer/-/react-art-svg-renderer-0.0.1-rc.8.tgz#b2ccf6c158cdd773f7312860f7083b2113bbd3d6"
-  integrity sha1-ssz2wVjN13P3MShg9wg7IRO709Y=
-  dependencies:
-    babel-runtime "^6.23.0"
-    lodash "^4.17.4"
-    prop-types "^15.5.9"
-    uuid "^3.0.1"
-
 react-dev-utils@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.0.0.tgz#356d95db442441c5d4748e0e49f4fd1e71aecbbd"
@@ -8329,15 +8332,6 @@ react-is@^16.8.1:
   version "16.8.4"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
   integrity sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
-
-react-qr-code@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/react-qr-code/-/react-qr-code-0.1.3.tgz#3b3f264f349578ff30fe6aec8a6ec583d1b9cdea"
-  integrity sha512-vC6mK7wIPdcoUYAmqx3sXMg+GHS98Fn+DclVx4uTY5XsUfMpfLd7MG/pKtbK/Vuipc/PwIqt+3WmkW353iyG0g==
-  dependencies:
-    prop-types "^15.6.2"
-    qr.js "0.0.0"
-    react-art-svg-renderer "^0.0.1-rc.8"
 
 react-redux@^7.0.2:
   version "7.0.2"
@@ -8437,6 +8431,13 @@ react-scripts@3.0.0:
     workbox-webpack-plugin "4.2.0"
   optionalDependencies:
     fsevents "2.0.6"
+
+react.qrcode.generator@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react.qrcode.generator/-/react.qrcode.generator-0.0.3.tgz#4d221cc32e4dd2fa943c35b68b52b32c74ab5b37"
+  integrity sha512-UaF66kINLD3ldy2VPsPRFJ76UYTnzSdkN+kH4cLQMnL1Me2emfLzZyZjlwEHYpjC9zBGuruR/v8SKZsy0glI0w==
+  dependencies:
+    qr.js "0.0.0"
 
 react@^16.8.6:
   version "16.8.6"

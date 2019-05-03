@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
 import { getEvents, addEvent, getCardsByEvent, getCards } from '../actions';
+import moment from 'moment';
 
 import "../styles/collectionTabs.css";
 
@@ -30,9 +31,11 @@ class CollectionTabs extends Component {
     }
     onSubmit = e => {
         e.preventDefault();
+        const date = new Date();
+        const time = moment(date).format("M.D.Y");
         const newEvent = {
             event_name: this.state.name,
-            event_date: "1.9.2019"
+            event_date: time
         }
         console.log(newEvent);
         this.props.addEvent(newEvent);

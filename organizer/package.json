@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "moment": "^2.24.0",
     "qrcode-react": "^0.1.16",
     "qrcode.react": "^0.9.3",
     "react": "^16.8.6",
