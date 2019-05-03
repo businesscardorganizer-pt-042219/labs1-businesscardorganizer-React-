@@ -26,7 +26,7 @@ class SaveCardPage extends React.Component {
     addCard = e => {
         e.preventDefault();
         const cardById = this.props.cardById;
-        const newCard = {...cardById, own_flag: false };
+        const newCard = {...cardById, own_flag: false, id: null };
         console.log(newCard);
         this.props.addCard(newCard);
     }
