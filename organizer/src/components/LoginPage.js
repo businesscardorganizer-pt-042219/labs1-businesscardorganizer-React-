@@ -5,7 +5,7 @@ import { login } from '../actions';
 
 import '../styles/loginPage.css';
 
-import Logo from '../img/logo.png';
+import Logo from '../img/card-logo-teal.png';
 import SpinnerDots from './SpinnerDots';
 
 class LoginPage extends React.Component {

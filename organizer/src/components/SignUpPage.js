@@ -5,7 +5,7 @@ import { register } from '../actions';
 
 import '../styles/loginPage.css';
 
-import Logo from '../img/logo.png';
+import Logo from '../img/card-logo-teal.png';
 import SpinnerDots from './SpinnerDots';
 
 
@@ -13,13 +13,11 @@ class SignUpPage extends React.Component {
     state = {
         credentials: {
             username: '',
-            password: '',
-            // email: ''
+            password: ''
         }
     }
     signUp = e => {
         e.preventDefault();
-        console.log(this.state.credentials);
         this.props.register(this.state.credentials)
             .then(() => {
                 this.props.history.push('/');
@@ -28,8 +26,7 @@ class SignUpPage extends React.Component {
             credentials: {
                 ...this.state.credentials,
                 username: '',
-                password: '',
-                // email: ''
+                password: ''
             }
         })
     }
@@ -49,11 +46,10 @@ class SignUpPage extends React.Component {
         // if not -> display non-active button
         const isSigningIn = this.props.isSigningIn;
         let button; // button declaration
-
         if (isSigningIn === true) {
             button = <button className="btn not-active"><SpinnerDots/></button>;
         } else {
-            if (this.state.credentials.username === '' && this.state.credentials.password === '' && this.state.credentials.email === '') {
+            if (this.state.credentials.username === '' && this.state.credentials.password === '') {
                 button = <button className="btn not-active">Sign Up</button>;
             } else {
                 button = <button className="btn">Sign Up</button>;

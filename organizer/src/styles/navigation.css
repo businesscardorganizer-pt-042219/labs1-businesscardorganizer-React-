@@ -1,5 +1,5 @@
 .navigation {
-    padding: 5px 5%;
+    padding: 10px 5%;
     margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
@@ -11,7 +11,7 @@
     width: 7%;
 }
 .nav-logo {
-    width: 100%;
+    width: 40%;
 }
 .nav-options {
     display: flex;
