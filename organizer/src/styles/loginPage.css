@@ -41,12 +41,15 @@
     }
 }
 .login-page-content .logo-wrapper, .sign-up-content .logo-wrapper {
-    width: 60%;
-    margin: 0 auto 30px auto;
+    width: 70%;
+    margin: 50px auto 70px auto;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 50px;
+}
+.login-page-content .logo-wrapper img, .sign-up-content .logo-wrapper img {
+    width: 20%;
 }
 .login-page-content form, .sign-up-content form {
     width: 80%;
