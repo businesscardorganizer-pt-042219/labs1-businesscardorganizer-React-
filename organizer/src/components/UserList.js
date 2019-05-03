@@ -1,4 +1,5 @@
 import React from "react";
+import PrivateRoute from './PrivateRoute';
 import { connect } from "react-redux";
 import { getCards, deleteCard} from '../actions';
 
@@ -19,6 +20,7 @@ class UserList extends React.Component {
     };
   }
   componentDidMount() {
+    // const event = this.props.match.params.event;
     this.props.getCards();
   }
   onClick = (id) => {

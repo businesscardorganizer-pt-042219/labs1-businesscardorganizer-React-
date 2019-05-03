@@ -61,7 +61,7 @@
 form input {
     margin-bottom: 40px;
     padding: 10px;
-    background: transparent !important;
+    background: transparent;
     font-size: 18px;
     border: 1.5px #5BB3B0 dashed;
     border-radius: 3px;
@@ -70,13 +70,19 @@ form input {
 form input:focus {
     outline: none;
     /* color: white; */
-    background: rgba(194, 238, 236, .5) !important;
+    background-color: rgba(194, 238, 236, .5);
     border: 1px dotted transparent;
     transform: scale(1.1);
 }
 form input:active {
-    background: transparent !important;
+    background-color: transparent;
 }
+/* form input:-webkit-autofill,
+form input:-webkit-autofill:hover,
+form input:-webkit-autofill:focus,
+form input:-webkit-autofill:active {
+    -webkit-transition-delay: 99999s;
+} */
 form .btn {
     width: 30%;
     padding: 10px 15px;

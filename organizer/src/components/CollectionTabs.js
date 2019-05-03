@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
 import { getEvents, addEvent, getCardsByEvent, getCards } from '../actions';
 
@@ -56,8 +57,15 @@ class CollectionTabs extends Component {
                 {
                     this.props.events && (
                         <div className="collection-tabs">
-                            <button className="btn" onClick={this.props.getCards}>All</button>
-                            {this.props.events.map(event => <button className="btn" key={event.id} onClick={() => this.fetchEventCards(event.id)}>{event.event_name}</button>)}
+                        <NavLink to="/user-list" activeClassName="active-btn">
+                            <div className="btn" onClick={this.props.getCards}>All</div>
+                        </NavLink>
+                        {   
+                            this.props.events.map(event => 
+                            <NavLink to={`/events/${event.event_name}`} activeClassName="active-btn">
+                                <div className="btn" key={event.id} onClick={() => this.fetchEventCards(event.id)}>{event.event_name}</div>
+                            </NavLink>
+                        )}
                         </div>
                     )
                 }
