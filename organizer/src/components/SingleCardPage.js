@@ -1,18 +1,23 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { getCardById } from '../actions';
+import { getCardById, deleteCard } from '../actions';
 
 import User from "./User";
 import Navigation from "./Navigation";
 import SpinnerDataLoad from "./SpinnerDataLoad";
 import QRCode from "../../node_modules/qrcode-react/lib/index";
 
-import "./user.css";
+import "../styles/user.css";
 
 class SingleCardPage extends React.Component {
     componentDidMount(props) {
         const id = this.props.match.params.id;
         this.props.getCardById(id);
+    }
+    onClick = () => {
+        const id = this.props.match.params.id;
+        this.props.deleteCard(id);
+        this.props.history.push("/");
     }
     render(props) {
         const id = this.props.match.params.id;
@@ -28,7 +33,7 @@ class SingleCardPage extends React.Component {
                     this.props.cardById ? 
                     (
                         <div className="single-card">
-                            <User card={this.props.cardById} hideControls="-hidden"/>
+                            <User card={this.props.cardById} onClick={this.onClick} hideControls="-hidden"/>
                             <div className="qrcode-wrapper">
                                 <QRCode className='qrcode' value={route}
                                 size={300}
@@ -51,6 +56,6 @@ class SingleCardPage extends React.Component {
 const mapStateToProps = state => ({
     cardById: state.cardById,
     fetchingCards: state.fetchingCards
-  });
-  
-  export default connect(mapStateToProps, { getCardById })(SingleCardPage);
+});
+
+export default connect(mapStateToProps, { getCardById, deleteCard })(SingleCardPage);

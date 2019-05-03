@@ -21,7 +21,7 @@ class LoginPage extends React.Component {
         this.props.login(this.state.credentials)
             .then(() => {
                 // const route = '/';
-                // const route = this.props.location.pathname || '/';
+                // const route = this.props.location.state.from || '/';
                 // only fires if login call is successful
                 this.props.history.push('/');
             })
@@ -101,7 +101,8 @@ class LoginPage extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      isLoggingIn: state.isLoggingIn
+      isLoggingIn: state.isLoggingIn,
+      error: state.error
     };
 };
 

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getEvents, addEvent, getCardsByEvent, getCards } from '../actions';
 
 import "../styles/collectionTabs.css";
 
@@ -7,8 +9,10 @@ import AddIcon from "../img/add-icon.png";
 class CollectionTabs extends Component {
     state = {
         displayForm: false,
-        tabs: [],
         name: ""
+    }
+    componentDidMount() {
+        this.props.getEvents();        
     }
     displayForm = e => {
         e.preventDefault();
@@ -25,21 +29,35 @@ class CollectionTabs extends Component {
     }
     onSubmit = e => {
         e.preventDefault();
-        this.state.tabs.push(this.state.name);
+        const newEvent = {
+            event_name: this.state.name,
+            event_date: "1.9.2019"
+        }
+        console.log(newEvent);
+        this.props.addEvent(newEvent);
+        /*
+        I NEED SOMETHING IN HERE TO UPDATE EVENT PROPS             
+        .then()
+        window.location.reload();
+        */
         this.setState({
             ...this.state,
             name: ""
         })
         this.hideForm();
     }
+    fetchEventCards = id => {
+        console.log(id);
+        this.props.getCardsByEvent(id);
+    }
     render() {
         return (
-            
             <div className="collection-tabs-wrapper">
                 {
-                    this.state.tabs && (
+                    this.props.events && (
                         <div className="collection-tabs">
-                            {this.state.tabs.map((tab, index) => <button className="btn" key={index}>{tab}</button>)}
+                            <button className="btn" onClick={this.props.getCards}>All</button>
+                            {this.props.events.map(event => <button className="btn" key={event.id} onClick={() => this.fetchEventCards(event.id)}>{event.event_name}</button>)}
                         </div>
                     )
                 }
@@ -50,7 +68,7 @@ class CollectionTabs extends Component {
                                 <input
                                     type="text"
                                     name="name"
-                                    placeholder="new collection name"
+                                    placeholder="name of the collection"
                                     value={this.state.name}
                                     onChange={this.handleChange}
                                 />
@@ -71,5 +89,9 @@ class CollectionTabs extends Component {
         )
     }
 }
+const mapStateToProps = state => ({
+    events: state.events,
+    fetchingEvents: state.fetchingEvents
+});
 
-export default CollectionTabs;
+export default connect(mapStateToProps, { getEvents, addEvent, getCardsByEvent, getCards })(CollectionTabs);

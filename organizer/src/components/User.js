@@ -6,7 +6,7 @@ import LinkedinIcon from "../img/linkedin-icon.png";
 import PhoneIcon from "../img/phone-icon.png";
 import EmailIcon from "../img/email-icon.png";
 
-import "./user.css";
+import "../styles/user.css";
 
 
 function User(props) {
@@ -14,7 +14,7 @@ function User(props) {
     <div className="user-card">
       <div className="user-controls">
         <Link to={`/user-list/${props.card.id}`}><button className={`btn${props.hideControls}`}>Open</button></Link>
-        <p className="user-edit" /* Add link to the edit form page here */>✎</p>
+        <Link to={`/edit/${props.card.id}`}><p className="user-edit">✎</p></Link>
         <p className="user-delete" onClick={() => props.onClick(props.card.id)}>✘</p>
       </div>
       <div className="user-header">
@@ -33,7 +33,8 @@ function User(props) {
         </header>
         
         <div className="card-body">
-          <h4>Contact information</h4>
+          {(props.card.cell_phone || props.card.email || props.card.linkedIn || props.card.github) && (<h4>Contact information</h4>)}
+          
           {/* Making checks for every item if we have info in DB, if not, we're just not showing this line */}
           {
             props.card.cell_phone && (
