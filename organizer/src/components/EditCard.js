@@ -14,6 +14,8 @@ class EditCard extends React.Component {
     }
     onSubmit = (id, updatedCard) => {
         this.props.editCard(this.props.cardById.id, updatedCard);
+        this.props.history.push("/user-list");
+        console.log(this.props.location);
     }
     render() {
         return (

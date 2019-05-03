@@ -40,7 +40,7 @@
 .add-card-form-content select:focus {
     outline: none;
 }
-.first-name, .phone {
+.first-name {
     margin-bottom: 10px;
 }
 .add-card-form-content form span, .edit-card-form-content form span {

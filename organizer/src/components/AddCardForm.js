@@ -137,11 +137,9 @@ class AddCardForm extends React.Component {
                             type='tel'
                             name='phone'
                             placeholder='Phone'
-                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                             value={this.state.data.phone}
                             onChange={this.handleChange}
                         />
-                        <span>Format: 123-456-7890</span>
                         <input
                             type='email'
                             name='email'
@@ -150,14 +148,14 @@ class AddCardForm extends React.Component {
                             onChange={this.handleChange}
                         />
                         <input 
-                            type='url'
+                            type='text'
                             name='linkedIn'
                             placeholder='LinkedIn'
                             value={this.state.data.linkedIn}
                             onChange={this.handleChange}
                         />
                         <input 
-                            type='url'
+                            type='text'
                             name='gitHub'
                             placeholder='GitHub'
                             value={this.state.data.gitHub}
