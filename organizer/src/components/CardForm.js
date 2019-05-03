@@ -54,72 +54,74 @@ class CardForm extends React.Component {
     render() {
         return (
             <div className="card-form-wrapper">
-                <form onSubmit={this.submit}>
-                    <input
-                        className="first-name"
-                        type='text'
-                        name='firstName'
-                        placeholder='First Name'
-                        value={this.state.data.firstName}
-                        onChange={this.handleChange}
-                        required
-                    />
-                    <span>✽ required field</span>
-                    <input
-                        type='text'
-                        name='lastName'
-                        placeholder='Last Name'
-                        value={this.state.data.lastName}
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        type='text'
-                        name='company'
-                        placeholder='Company'
-                        value={this.state.data.company}
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        type='text'
-                        name='title'
-                        placeholder='Title'
-                        value={this.state.data.title}
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        className="phone"
-                        type='tel'
-                        name='phone'
-                        placeholder='Phone'
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                        value={this.state.data.phone}
-                        onChange={this.handleChange}
-                    />
-                    <span>Format: 123-456-7890</span>
-                    <input
-                        type='email'
-                        name='email'
-                        placeholder='Email'
-                        value={this.state.data.email}
-                        onChange={this.handleChange}
-                    />
-                    <input 
-                        type='url'
-                        name='linkedIn'
-                        placeholder='LinkedIn'
-                        value={this.state.data.linkedIn}
-                        onChange={this.handleChange}
-                    />
-                    <input 
-                        type='url'
-                        name='gitHub'
-                        placeholder='GitHub'
-                        value={this.state.data.gitHub}
-                        onChange={this.handleChange}
-                    />
-                    {/* Check if user started to type something */}
-                    {(this.state.data.firstName || this.state.data.lastName || this.state.data.company || this.state.data.title || this.state.data.phone || this.state.data.email || this.state.data.linkedIn || this.state.data.gitHub !== '') ? (<button className="btn">Update card</button>) : (<button className="btn not-active">Update card</button>)}
-                </form>
+                <div className="edit-card-form-content">                   
+                    <form onSubmit={this.submit}>
+                        <input
+                            className="first-name"
+                            type='text'
+                            name='firstName'
+                            placeholder='First Name'
+                            value={this.state.data.firstName}
+                            onChange={this.handleChange}
+                            required
+                        />
+                        <span>✽ required field</span>
+                        <input
+                            type='text'
+                            name='lastName'
+                            placeholder='Last Name'
+                            value={this.state.data.lastName}
+                            onChange={this.handleChange}
+                        />
+                        <input
+                            type='text'
+                            name='company'
+                            placeholder='Company'
+                            value={this.state.data.company}
+                            onChange={this.handleChange}
+                        />
+                        <input
+                            type='text'
+                            name='title'
+                            placeholder='Title'
+                            value={this.state.data.title}
+                            onChange={this.handleChange}
+                        />
+                        <input
+                            className="phone"
+                            type='tel'
+                            name='phone'
+                            placeholder='Phone'
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                            value={this.state.data.phone}
+                            onChange={this.handleChange}
+                        />
+                        <span>Format: 123-456-7890</span>
+                        <input
+                            type='email'
+                            name='email'
+                            placeholder='Email'
+                            value={this.state.data.email}
+                            onChange={this.handleChange}
+                        />
+                        <input 
+                            type='url'
+                            name='linkedIn'
+                            placeholder='LinkedIn'
+                            value={this.state.data.linkedIn}
+                            onChange={this.handleChange}
+                        />
+                        <input 
+                            type='url'
+                            name='gitHub'
+                            placeholder='GitHub'
+                            value={this.state.data.gitHub}
+                            onChange={this.handleChange}
+                        />
+                        {/* Check if user started to type something */}
+                        {(this.state.data.firstName || this.state.data.lastName || this.state.data.company || this.state.data.title || this.state.data.phone || this.state.data.email || this.state.data.linkedIn || this.state.data.gitHub !== '') ? (<button className="btn">Update card</button>) : (<button className="btn not-active">Update card</button>)}
+                    </form>
+                </div>
             </div>
         )
     }

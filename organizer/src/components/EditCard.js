@@ -5,6 +5,8 @@ import { getCardById, editCard } from '../actions';
 import Navigation from "./Navigation";
 import CardForm from "./CardForm";
 
+import '../styles/addCardForm.css';
+
 class EditCard extends React.Component {
     componentDidMount(props) {
         const id = this.props.match.params.id;
