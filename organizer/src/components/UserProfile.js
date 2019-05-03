@@ -5,7 +5,6 @@ import { getCards, deleteCard } from '../actions';
 import Navigation from "./Navigation";
 import AddCardForm from "./AddCardForm";
 import User from "./User";
-import QRCode from "../../node_modules/qrcode-react/lib/index";
 import SpinnerDataLoad from "./SpinnerDataLoad";
 
 import "../styles/userProfile.css";

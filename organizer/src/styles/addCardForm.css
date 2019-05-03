@@ -35,7 +35,7 @@
     height: 48px;
     border: 1.5px #5BB3B0 dashed;
     border-radius: 3px;
-    color: grey;
+    color: rgb(34, 34, 34);
 }
 .add-card-form-content select:focus {
     outline: none;

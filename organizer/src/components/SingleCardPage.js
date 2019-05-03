@@ -56,6 +56,6 @@ class SingleCardPage extends React.Component {
 const mapStateToProps = state => ({
     cardById: state.cardById,
     fetchingCards: state.fetchingCards
-  });
-  
-  export default connect(mapStateToProps, { getCardById, deleteCard })(SingleCardPage);
+});
+
+export default connect(mapStateToProps, { getCardById, deleteCard })(SingleCardPage);

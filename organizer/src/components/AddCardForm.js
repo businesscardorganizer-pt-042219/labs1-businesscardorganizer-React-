@@ -25,7 +25,6 @@ class AddCardForm extends React.Component {
     submit = e => {
         e.preventDefault();
         let ownFlagValue = false;
-        console.log(this.state.collections);
         if(this.state.collections === "own_flag" || this.state.collections === "") {
             ownFlagValue = true;
         } else {

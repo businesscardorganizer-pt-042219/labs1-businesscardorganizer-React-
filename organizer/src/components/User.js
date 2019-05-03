@@ -14,7 +14,7 @@ function User(props) {
     <div className="user-card">
       <div className="user-controls">
         <Link to={`/user-list/${props.card.id}`}><button className={`btn${props.hideControls}`}>Open</button></Link>
-        <p className="user-edit" /* Add link to the edit form page here */>✎</p>
+        <Link to={`/edit/${props.card.id}`}><p className="user-edit">✎</p></Link>
         <p className="user-delete" onClick={() => props.onClick(props.card.id)}>✘</p>
       </div>
       <div className="user-header">

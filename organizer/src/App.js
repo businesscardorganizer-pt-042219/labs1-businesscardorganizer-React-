@@ -6,8 +6,9 @@ import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import UserList from "./components/UserList";
 import UserProfile from "./components/UserProfile";
-import SaveCardPage from './components/SaveCardPage';
+// import SaveCardPage from './components/SaveCardPage';
 import SingleCardPage from './components/SingleCardPage';
+import EditCard from "./components/EditCard";
 
 class App extends Component {
   handleProfile = () => {};
@@ -21,7 +22,10 @@ class App extends Component {
         <PrivateRoute exact path='/' component={UserProfile} />
         <PrivateRoute exact path='/user-list' component={UserList} />
         <PrivateRoute exact path='/user-list/:id' component={SingleCardPage} />
-        <PrivateRoute exact path='/save/:id' render={(props) => <SaveCardPage {...props} />} />
+        {/* <PrivateRoute exact path='/save/:id' render={(props) => <SaveCardPage {...props} />} /> */}
+
+        <PrivateRoute path='/edit/:id' component={EditCard} />
+
       </div>
     );
   }

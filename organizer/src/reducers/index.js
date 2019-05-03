@@ -17,6 +17,9 @@ import {
     GET_USERS_CARD_START,
     GET_USERS_CARD_SUCCESS,
     GET_USERS_CARD_FAILURE,
+    GET_CARDS_BY_EVENT_ID_START,
+    GET_CARDS_BY_EVENT_ID_SUCCESS,
+    GET_CARDS_BY_EVENT_ID_FAILURE,
     ADD_CARD_START,
     ADD_CARD_SUCCESS,
     ADD_CARD_FAILURE,
@@ -25,7 +28,10 @@ import {
     ADD_EVENT_FAILURE,
     DELETE_CARD_START,
     DELETE_CARD_SUCCESS,
-    DELETE_CARD_FAILURE
+    DELETE_CARD_FAILURE,
+    EDIT_CARD_START,
+    EDIT_CARD_SUCCESS,
+    EDIT_CARD_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -41,6 +47,7 @@ const initialState = {
     savingCard: false,
     savingEvent: false,
     deletingCard: false,
+    updatingCard: false,
     error: ''
 }
 
@@ -160,6 +167,27 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 fetchingCards: false
             };
+
+        case GET_CARDS_BY_EVENT_ID_START:
+            return {
+                ...state,
+                error: '',
+                fetchingCards: true
+            };
+        case GET_CARDS_BY_EVENT_ID_SUCCESS:
+            return {
+                ...state,
+                error: '',
+                fetchingCards: false,
+                cards: action.payload
+            };
+        case GET_CARDS_BY_EVENT_ID_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                fetchingCards: false
+            };
+
         case ADD_CARD_START:
             return {
                 ...state,
@@ -220,6 +248,32 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 deletingcard: false
             };
+
+        case EDIT_CARD_START:
+            return {
+                ...state,
+                error: '',
+                updatingCard: true,
+            }
+        case EDIT_CARD_SUCCESS:
+            return {
+              ...state,
+              updatingCard: false,
+              cards: state.cards.filter(card => {
+                  if(card.id === action.payload.id) {
+                      return action.payload
+                  } else {
+                      return card
+                  }
+              })
+            }
+        case EDIT_CARD_FAILURE:
+            return {
+              ...state,
+              error: action.payload,
+              updatingCard: false
+            };
+
         default:
             return state;
     }

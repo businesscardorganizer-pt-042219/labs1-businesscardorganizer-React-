@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getEvents, addEvent } from '../actions';
+import { getEvents, addEvent, getCardsByEvent, getCards } from '../actions';
 
 import "../styles/collectionTabs.css";
 
@@ -46,14 +46,18 @@ class CollectionTabs extends Component {
         })
         this.hideForm();
     }
+    fetchEventCards = id => {
+        console.log(id);
+        this.props.getCardsByEvent(id);
+    }
     render() {
         return (
             <div className="collection-tabs-wrapper">
                 {
                     this.props.events && (
                         <div className="collection-tabs">
-                            <button className="btn">All</button>
-                            {this.props.events.map(event => <button className="btn" key={event.id}>{event.event_name}</button>)}
+                            <button className="btn" onClick={this.props.getCards}>All</button>
+                            {this.props.events.map(event => <button className="btn" key={event.id} onClick={() => this.fetchEventCards(event.id)}>{event.event_name}</button>)}
                         </div>
                     )
                 }
@@ -90,4 +94,4 @@ const mapStateToProps = state => ({
     fetchingEvents: state.fetchingEvents
 });
 
-export default connect(mapStateToProps, { getEvents, addEvent })(CollectionTabs);
+export default connect(mapStateToProps, { getEvents, addEvent, getCardsByEvent, getCards })(CollectionTabs);

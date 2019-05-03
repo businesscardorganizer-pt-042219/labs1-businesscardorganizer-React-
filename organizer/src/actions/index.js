@@ -97,7 +97,7 @@ export const GET_USERS_CARD_FAILURE = "GET_USERS_CARD_FAILURE";
 export const getUsersCard = (id) => dispatch => {
   dispatch({ type: GET_USERS_CARD_START });
   axios
-    .get(`https://business-card-organizer.herokuapp.com/api/users//usersowncard/${id}`, id, {
+    .get(`https://business-card-organizer.herokuapp.com/api/users/usersowncard/${id}`, id, {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
@@ -132,6 +132,29 @@ export const getEvents = () => dispatch => {
       dispatch({ type: FETCH_EVENTS_FAILURE, payload: err.response });
     });
 };
+// GET cards by event id
+export const GET_CARDS_BY_EVENT_ID_START = "GET_CARDS_BY_EVENT_ID_START";
+export const GET_CARDS_BY_EVENT_ID_SUCCESS = "GET_CARDS_BY_EVENT_ID_SUCCESS";
+export const GET_CARDS_BY_EVENT_ID_FAILURE = "GET_CARDS_BY_EVENT_ID_FAILURE";
+
+export const getCardsByEvent = id => dispatch => {
+  dispatch({ type: GET_CARDS_BY_EVENT_ID_START });
+  axios
+    .get(`https://business-card-organizer.herokuapp.com/api/users/events/${id}`, {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
+    .then(res => {
+      console.log(res);
+      return dispatch({
+        type: GET_CARDS_BY_EVENT_ID_SUCCESS,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch({ type: GET_CARDS_BY_EVENT_ID_FAILURE, payload: err.response });
+    });
+}
+
 
 // ADD card
 export const ADD_CARD_START = 'ADD_CARD_START';
@@ -206,5 +229,30 @@ export const deleteCard = id => dispatch => {
     })
     .catch(err => {
       dispatch({ type: DELETE_CARD_FAILURE, payload: err.response });
+    });
+};
+
+// EDIT card
+export const EDIT_CARD_START = 'EDIT_CARD_START';
+export const EDIT_CARD_SUCCESS = 'EDIT_CARD_SUCCESS';
+export const EDIT_CARD_FAILURE = 'EDIT_CARD_FAILURE';
+
+export const editCard = (id, updatedCard) => dispatch => {
+  dispatch({ type: EDIT_CARD_START });
+  axios
+    .put(`https://business-card-organizer.herokuapp.com/api/users/cards/${id}`, updatedCard, {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
+    .then(res => {
+      console.log(res.data);
+      console.log({id: res.data, ...updatedCard});
+      dispatch({
+        type: EDIT_CARD_SUCCESS,
+        payload: {id: id, ...updatedCard}
+        // updatedCard: {id: res.data, ...updatedCard}
+      });
+    })
+    .catch(err => {
+      dispatch({ type: EDIT_CARD_FAILURE, payload: err.response });
     });
 };
