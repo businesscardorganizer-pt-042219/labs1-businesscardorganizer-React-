@@ -30,6 +30,9 @@ class UserProfile extends Component {
         this.props.deleteCard(id);
     }
     render() {
+        if (this.props.savingCard) {
+            this.props.getCards();
+        }
       return (
         <div className="user-profile-wrapper">
             <Navigation />
@@ -51,15 +54,6 @@ class UserProfile extends Component {
                         ))
                     )
                 }
-
-
-                {/* QRCode example. We should add dinamic route with an id of particular card in there */}
-
-                {/*<QRCode className='qrcode' value='https://hopeful-ride-580fdd.netlify.com/user-list'
-                    size={300}
-                    fgColor='rgb(39, 39, 39)'
-                    bgColor='transparent'/>
-                */}
             </div>
         </div>
     );

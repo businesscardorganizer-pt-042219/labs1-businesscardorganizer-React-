@@ -133,7 +133,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: '',
-                fetchingCards: true
+                fetchingCards: true,
+                cardById: []
             };
         case GET_CARD_BY_ID_SUCCESS:
             return {
@@ -172,7 +173,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: '',
-                fetchingCards: true
+                fetchingCards: true,
+                cards: []
             };
         case GET_CARDS_BY_EVENT_ID_SUCCESS:
             return {
@@ -248,7 +250,6 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 deletingcard: false
             };
-
         case EDIT_CARD_START:
             return {
                 ...state,
@@ -273,7 +274,6 @@ const reducer = (state = initialState, action) => {
               error: action.payload,
               updatingCard: false
             };
-
         default:
             return state;
     }
