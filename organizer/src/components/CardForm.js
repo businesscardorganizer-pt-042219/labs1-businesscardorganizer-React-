@@ -21,7 +21,7 @@ class CardForm extends React.Component {
             company_name: this.state.data.company,
             work_title: this.state.data.title,
             cell_phone: this.state.data.phone,
-            email: this.state.data.email,
+            email: this.state.data.email || "",
             linkedIn: this.state.data.linkedIn,
             github: this.state.data.gitHub
         }

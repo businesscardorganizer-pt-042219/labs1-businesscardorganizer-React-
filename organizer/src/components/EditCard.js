@@ -19,7 +19,7 @@ class EditCard extends React.Component {
         return (
             <div className="edit-card-wrapper">
                 <Navigation />
-                <CardForm card={this.props.cardById} onSubmit={this.onSubmit} />
+                {!this.props.fetchingCards && <CardForm card={this.props.cardById} onSubmit={this.onSubmit} />}
             </div>
         )
     }
