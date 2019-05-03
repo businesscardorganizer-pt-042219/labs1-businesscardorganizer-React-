@@ -21,7 +21,7 @@ class SingleCardPage extends React.Component {
     }
     render(props) {
         const id = this.props.match.params.id;
-        const route = `https://hopeful-ride-580fdd.netlify.com/user-list/${id}` 
+        const route = `https://deploy-preview-17--hopeful-ride-580fdd.netlify.com/save/${id}` 
         return (
             <div className="single-card-wrapper">
                 <Navigation />

@@ -26,10 +26,9 @@ class SaveCardPage extends React.Component {
     addCard = e => {
         e.preventDefault();
         const cardById = this.props.cardById;
-        const collectionTag = {collection_tag: this.state.collections};
-        const newCard = {...cardById, ...collectionTag };
+        const newCard = {...cardById, own_flag: false, id: null };
         console.log(newCard);
-        // this.props.addCard(newCard);
+        this.props.addCard(newCard);
     }
     render() {    
         return (
@@ -47,9 +46,7 @@ class SaveCardPage extends React.Component {
                             <form className="save-to-collection" onSubmit={this.addCard}>
                                 <select name="collections" id="select-form" onChange={this.onChange}>
                                     <option value="default">All cards</option>
-                                    {/* TEST */}
-                                    <option value="business">Business</option>
-                                    <option value="friends">Friends</option>
+                                    
                                     {/* here I need to map through all collections names and return option tags*/}
                                 </select>
                                 <button>Save to collection</button>
