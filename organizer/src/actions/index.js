@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 /* REGISTER */
 export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -12,7 +13,7 @@ export const register = (credentials) => dispatch => {
         .post("https://business-card-organizer.herokuapp.com/api/auth/register", credentials)
         .then(res => {
             localStorage.setItem('token', res.data.token);
-            return dispatch({ type: REGISTER_SUCCESS, payload: res.data, credentials: credentials});
+            dispatch({ type: REGISTER_SUCCESS, payload: res.data, credentials: credentials});
         })
         .catch(err => {
             if (err.response.status === 403) {
@@ -34,7 +35,7 @@ export const login = (credentials) => dispatch => {
         .post("https://business-card-organizer.herokuapp.com/api/auth/login", credentials)
         .then(res => {
             localStorage.setItem('token', res.data.token);
-            return dispatch({ type: LOGIN_SUCCESS, payload: res.data, credentials: credentials});
+            dispatch({ type: LOGIN_SUCCESS, payload: res.data, credentials: credentials});
         })
         .catch(err => {
             console.log(`ERROR LOGIN: ${err.message}`);
