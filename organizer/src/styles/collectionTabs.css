@@ -12,12 +12,19 @@
     align-items: center;
     justify-content: flex-start;
 }
-.collection-tabs .btn {
-    padding: 10px 15px;
+.collection-tabs a {
+    text-decoration: none;
+    /* color: rgb(121, 121, 121); */
+    margin: 0 1% 10px 0;
     background: white;
-    color: rgb(121, 121, 121);
     border: 1px solid rgb(121, 121, 121);
     border-radius: 3px;
+    padding: 10px 15px;
+    color: rgb(121, 121, 121);
+
+}
+.collection-tabs .btn {
+    border: none;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
@@ -25,17 +32,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 1% 10px 0;
 }
-.collection-tabs .btn:focus {
-    outline: none;
+.collection-tabs a:hover {
+    background: #C2EEEC;
+    color:  rgb(34, 34, 34);
+    box-shadow: inset -.5px -.5px 10px #8BD3D1;
+    border: 1px solid #C2EEEC;
 }
-.collection-tabs .btn:hover {
+.collection-tabs .active-btn {
     background: #5BB3B0;
     color: white;
     box-shadow: inset -.5px -.5px 10px #21827F;
-    border: 1px solid transparent;
+    border: 1px solid #5BB3B0;
 }
+
 .add-to-collection {
     width: 15%;
     margin: 0 auto;

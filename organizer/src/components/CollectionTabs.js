@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
 import { getEvents, addEvent, getCardsByEvent, getCards } from '../actions';
+import moment from 'moment';
 
 import "../styles/collectionTabs.css";
 
@@ -29,9 +31,11 @@ class CollectionTabs extends Component {
     }
     onSubmit = e => {
         e.preventDefault();
+        const date = new Date();
+        const time = moment(date).format("M.D.Y");
         const newEvent = {
             event_name: this.state.name,
-            event_date: "1.9.2019"
+            event_date: time
         }
         console.log(newEvent);
         this.props.addEvent(newEvent);
@@ -47,7 +51,6 @@ class CollectionTabs extends Component {
         this.hideForm();
     }
     fetchEventCards = id => {
-        console.log(id);
         this.props.getCardsByEvent(id);
     }
     render() {
@@ -56,8 +59,14 @@ class CollectionTabs extends Component {
                 {
                     this.props.events && (
                         <div className="collection-tabs">
-                            <button className="btn" onClick={this.props.getCards}>All</button>
-                            {this.props.events.map(event => <button className="btn" key={event.id} onClick={() => this.fetchEventCards(event.id)}>{event.event_name}</button>)}
+                        <NavLink to="/user-list" activeClassName="active-btn">
+                            <div className="btn" onClick={this.props.getCards}>All</div>
+                        </NavLink>
+                        {   this.props.events.map(event => 
+                            <NavLink to={`/events/${event.event_name}`} activeClassName="active-btn" onClick={() => this.fetchEventCards(event.id)}>
+                                <div className="btn" key={event.id}>{event.event_name}</div>
+                            </NavLink>
+                        )}
                         </div>
                     )
                 }

@@ -30,6 +30,9 @@ class UserProfile extends Component {
         this.props.deleteCard(id);
     }
     render() {
+        if (this.props.savingCard) {
+            this.props.getCards();
+        }
       return (
         <div className="user-profile-wrapper">
             <Navigation />
@@ -37,28 +40,20 @@ class UserProfile extends Component {
                 
                 { this.state.displayForm ? (<AddCardForm hideForm={this.hideForm} />) : (<img src={AddIcon} className="add-card-icon" alt="" onClick={this.displayForm} />) }
 
-                { this.props.fetchingCards ? <SpinnerDataLoad /> :
-                (this.props.cards
-                    .filter(card => {
+                { this.props.fetchingCards ? <SpinnerDataLoad /> : (
+                    this.props.cards
+                        .filter(card => {
                             if (card.own_flag === "1") {
                                 return card
                             } else {
                                 return null
                             }
                         })
-                    .map(card => (
-                    <User key={card.id} card={card} onClick={this.onClick} hideControls=""/>
+                        .map(card => (
+                            <User key={card.id} card={card} onClick={this.onClick} hideControls=""/>
+                        ))
                     )
-                ))}
-
-
-                {/* QRCode example. We should add dinamic route with an id of particular card in there */}
-
-                {/*<QRCode className='qrcode' value='https://hopeful-ride-580fdd.netlify.com/user-list'
-                    size={300}
-                    fgColor='rgb(39, 39, 39)'
-                    bgColor='transparent'/>
-                */}
+                }
             </div>
         </div>
     );
@@ -68,7 +63,9 @@ class UserProfile extends Component {
 const mapStateToProps = state => ({
     cards: state.cards,
     fetchingCards: state.fetchingCards,
-    deletingCard: state.deletingCard
+    deletingCard: state.deletingCard,
+    updatingCard: state.updatingCard,
+    savingCard: state.savingCard
   });
   
 export default connect(mapStateToProps, { getCards, deleteCard })(UserProfile);

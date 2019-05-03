@@ -24,7 +24,8 @@ class App extends Component {
         <PrivateRoute exact path='/user-list/:id' component={SingleCardPage} />
         {/* <PrivateRoute exact path='/save/:id' render={(props) => <SaveCardPage {...props} />} /> */}
 
-        <PrivateRoute path='/edit/:id' component={EditCard} />
+        <PrivateRoute exact path='/edit/:id' component={EditCard} />
+        <PrivateRoute exact path='/events/:event' component={UserList} />
 
       </div>
     );

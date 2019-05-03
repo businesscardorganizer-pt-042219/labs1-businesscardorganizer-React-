@@ -244,12 +244,9 @@ export const editCard = (id, updatedCard) => dispatch => {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
-      console.log(res.data);
-      console.log({id: res.data, ...updatedCard});
       dispatch({
         type: EDIT_CARD_SUCCESS,
         payload: {id: id, ...updatedCard}
-        // updatedCard: {id: res.data, ...updatedCard}
       });
     })
     .catch(err => {
