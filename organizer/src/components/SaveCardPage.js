@@ -29,6 +29,7 @@ class SaveCardPage extends React.Component {
         const newCard = {...cardById, own_flag: false, id: null };
         console.log(newCard);
         this.props.addCard(newCard);
+        this.props.history.push("/user-list");
     }
     render() {    
         return (
