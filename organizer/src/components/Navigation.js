@@ -18,7 +18,7 @@ class Navigation extends Component {
                 </div>
                 <div className="nav-options">
 
-                    <NavLink activeClassName="active" to='/user-list'>Collections</NavLink>
+                    <NavLink activeClassName="active" to='/user-list' onClick={this.props.onClick}>Collections</NavLink>
 
                     <Link to='/' className="link-nav-user"><img className="nav-user" src={UserIcon} alt="gender neutral user" /></Link>
 
