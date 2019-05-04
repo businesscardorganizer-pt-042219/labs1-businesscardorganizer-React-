@@ -6,6 +6,8 @@ import User from "./User";
 import Navigation from "./Navigation";
 import SpinnerDataLoad from "./SpinnerDataLoad";
 
+import '../styles/saveCard.css';
+
 
 class SaveCardPage extends React.Component {
     state = {
@@ -44,14 +46,16 @@ class SaveCardPage extends React.Component {
                     (
                         <div className="save-card">
                             <User card={this.props.cardById} />
-                            <form className="save-to-collection" onSubmit={this.addCard}>
-                                <select name="collections" id="select-form" onChange={this.onChange}>
-                                    <option value="default">All cards</option>
-                                    
-                                    {/* here I need to map through all collections names and return option tags*/}
-                                </select>
-                                <button>Save to collection</button>
-                            </form>
+                            <div className="save-card-form-wrapper">
+                                <form className="save-to-collection" onSubmit={this.addCard}>
+                                    <select name="collections" id="select-form" onChange={this.onChange}>
+                                        <option value="default">All cards</option>
+                                        
+                                        {/* here I need to map through all collections names and return option tags*/}
+                                    </select>
+                                    <button className="btn">Save to collection</button>
+                                </form>
+                            </div>
                         </div>
                     ) : (
                         /* display error message to user if there's no card with such id */

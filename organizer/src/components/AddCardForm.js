@@ -18,7 +18,7 @@ class AddCardForm extends React.Component {
             file: null,
             fileName: 'Choose a file'
         },
-        userName: "Kasia", // we need to change it to the username data
+        userName: localStorage.getItem("username") || "guest", // we need to change it to the username data
         collections: "" // check if it's own card or new card for the collection
     }
     /* Create user's profile card */

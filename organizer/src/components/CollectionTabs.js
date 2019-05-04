@@ -39,11 +39,6 @@ class CollectionTabs extends Component {
         }
         console.log(newEvent);
         this.props.addEvent(newEvent);
-        /*
-        I NEED SOMETHING IN HERE TO UPDATE EVENT PROPS             
-        .then()
-        window.location.reload();
-        */
         this.setState({
             ...this.state,
             name: ""
@@ -63,7 +58,7 @@ class CollectionTabs extends Component {
                             <div className="btn" onClick={this.props.getCards}>All</div>
                         </NavLink>
                         {   this.props.events.map(event => 
-                            <NavLink to={`/events/${event.event_name}`} activeClassName="active-btn" onClick={() => this.fetchEventCards(event.id)}>
+                            <NavLink to={`/events/${event.event_name}`} activeClassName="active-btn" key={event.id} onClick={() => this.fetchEventCards(event.id)}>
                                 <div className="btn" key={event.id}>{event.event_name}</div>
                             </NavLink>
                         )}

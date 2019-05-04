@@ -1,0 +1,56 @@
+.save-card {
+    width: 100%;
+}
+.save-card .save-card-form-wrapper {
+    width: 80%;
+    padding: 15px 10%;
+    background: rgba(91, 179, 176, .1);
+}
+.save-card .save-card-form-wrapper form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.save-card .save-card-form-wrapper form select {
+    margin: 0 5% 0 0;
+    width: 70%;
+}
+.save-card .save-card-form-wrapper form .btn {
+    width: 25%;
+    margin: 0;
+}
+@media (max-width: 850px) {
+    .save-card .save-card-form-wrapper form select {
+        width: 60%;
+    }
+    .save-card .save-card-form-wrapper form .btn {
+        width: 35%;
+    } 
+}
+@media (max-width:700px) {
+    .save-card .save-card-form-wrapper {
+        width: 100%;
+        padding: 20px 0;
+    }
+    .save-card .save-card-form-wrapper form {
+        flex-direction: column;
+    }
+    .save-card .save-card-form-wrapper form select {
+        margin: 0 0 20px 0;
+        width: 65%;
+    }
+    .save-card .save-card-form-wrapper form .btn {
+        width: 65%;
+    } 
+}
+@media (max-width:600px) {
+    .save-card .save-card-form-wrapper form select {
+        width: 87%;
+    
+    }
+    .save-card .save-card-form-wrapper form .btn {
+        width: 87%;
+    } 
+}

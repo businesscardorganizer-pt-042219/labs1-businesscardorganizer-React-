@@ -19,7 +19,9 @@ class UserList extends React.Component {
     };
   }
   componentDidMount() {
-    // this.props.getCards();
+    if(this.props.cards.length === 0) {
+      this.props.getCards();
+    }
   }
   onClick = (id) => {
     this.props.deleteCard(id);
@@ -41,7 +43,7 @@ class UserList extends React.Component {
                     }
                 })
             .map(card => (
-              <User key={card.id} card={card} onClick={this.onClick} hideControls=""/>
+              <User key={card.id} card={card} onClick={this.onClick} hideControls="" location={this.props.location} />
             )
           ))}
         </div>

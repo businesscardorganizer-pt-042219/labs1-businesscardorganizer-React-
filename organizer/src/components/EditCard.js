@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { getCardById, editCard } from '../actions';
+import { getCardById, editCard, getCards } from '../actions';
 
 import Navigation from "./Navigation";
 import CardForm from "./CardForm";
@@ -12,10 +12,9 @@ class EditCard extends React.Component {
         const id = this.props.match.params.id;
         this.props.getCardById(id);
     }
-    onSubmit = (id, updatedCard) => {
+    onSubmit = (updatedCard) => {
         this.props.editCard(this.props.cardById.id, updatedCard);
-        this.props.history.push("/user-list");
-        console.log(this.props.location);
+        this.props.getCards();
     }
     render() {
         return (
@@ -32,4 +31,4 @@ const mapStateToProps = state => ({
     fetchingCards: state.fetchingCards
 });
 
-export default connect(mapStateToProps, { getCardById, editCard })(EditCard);
+export default connect(mapStateToProps, { getCardById, editCard, getCards })(EditCard);
