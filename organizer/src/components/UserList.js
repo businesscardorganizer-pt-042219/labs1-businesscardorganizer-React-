@@ -19,7 +19,9 @@ class UserList extends React.Component {
     };
   }
   componentDidMount() {
-    this.props.getCards();
+    if(this.props.cards.length === 0) {
+      this.props.getCards();
+    }
   }
   onClick = (id) => {
     this.props.deleteCard(id);
@@ -28,7 +30,7 @@ class UserList extends React.Component {
   render() {
     return (
       <div className="user-list">
-        <Navigation />
+        <Navigation onClick={this.props.getCards} />
         <CollectionTabs />
         <div className="active-user-list">
           { this.props.fetchingCards ? <SpinnerDataLoad /> :
@@ -41,7 +43,7 @@ class UserList extends React.Component {
                     }
                 })
             .map(card => (
-              <User key={card.id} card={card} onClick={this.onClick} hideControls=""/>
+              <User key={card.id} card={card} onClick={this.onClick} hideControls="" location={this.props.location} />
             )
           ))}
         </div>

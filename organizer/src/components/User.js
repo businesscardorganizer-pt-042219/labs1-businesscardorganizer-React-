@@ -48,7 +48,7 @@ function User(props) {
             props.card.email && (
               <div className="card-body-item">
                 <img className="email-icon" src={EmailIcon} alt="" />
-                <div>{props.card.email}</div>
+                <a href={`mailto:${props.card.email}`}>{props.card.email}</a>
               </div>
             )
           }
@@ -56,7 +56,7 @@ function User(props) {
             props.card.linkedIn && (
               <div className="card-body-item">
                 <img className="linkedin-icon" src={LinkedinIcon} alt="" />
-                <a href={props.card.linkedIn} alt="linkedin">LinkedIn</a>
+                <a href={`http://${props.card.linkedIn}`} alt="linkedin">LinkedIn</a>
               </div>
             )
           }
@@ -64,7 +64,7 @@ function User(props) {
             props.card.github && (
               <div className="card-body-item">
                 <img className="github-icon" src={GithubIcon} alt="" />
-                <a href={props.card.github} alt="github">GitHub</a>
+                <a href={`http://${props.card.github}`} alt="github">GitHub</a>
               </div>
             )
           }

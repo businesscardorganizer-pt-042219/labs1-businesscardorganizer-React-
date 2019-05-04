@@ -34,6 +34,7 @@ export const login = (credentials) => dispatch => {
     return axios
         .post("https://business-card-organizer.herokuapp.com/api/auth/login", credentials)
         .then(res => {
+            console.log(res);
             localStorage.setItem('token', res.data.token);
             dispatch({ type: LOGIN_SUCCESS, payload: res.data, credentials: credentials});
         })

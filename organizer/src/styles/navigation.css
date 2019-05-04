@@ -7,11 +7,8 @@
     border: none;
     background: #5BB3B0;
 }
-.nav-logo-wrapper {
-    width: 7%;
-}
 .nav-logo {
-    width: 40%;
+    width: 40px;
 }
 .nav-options {
     display: flex;

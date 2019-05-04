@@ -11,7 +11,17 @@
     align-items: center;
 }
 .user-profile-wrapper .add-card-icon {
-    width: 5%;
+    width: 7%;
     margin-bottom: 25px;
+}
+@media (max-width:750px) {
+    .user-profile-wrapper .add-card-icon {
+        width: 12%;
+    }
+}
+@media (max-width:500px) {
+    .user-profile-wrapper .add-card-icon {
+        width: 15%;
+    }
 }
 

@@ -10,7 +10,8 @@ class CardForm extends React.Component {
             phone: this.props.card.cell_phone,
             email: this.props.card.email,
             linkedIn: this.props.card.linkedIn,
-            gitHub: this.props.card.github
+            gitHub: this.props.card.github,
+            own_flag: this.props.card.own_flag
         }
     }
     submit = e => {
@@ -23,9 +24,9 @@ class CardForm extends React.Component {
             cell_phone: this.state.data.phone,
             email: this.state.data.email || "",
             linkedIn: this.state.data.linkedIn,
-            github: this.state.data.gitHub
+            github: this.state.data.gitHub,
+            own_flag: this.state.data.own_flag
         }
-        this.props.onSubmit(this.props.card.id, updatedCard);
         this.setState({
             data: {
                 ...this.state.data,
@@ -37,11 +38,11 @@ class CardForm extends React.Component {
                 email: '',
                 linkedIn: '',
                 gitHub: '',
-                file: null,
-                fileName: 'Choose a file'
+                own_flag: null
             }
         })
-        // this.props.history.push('/');
+        console.log(updatedCard);
+        this.props.onSubmit(this.props.card.id, updatedCard);
     }
     handleChange = e => {
         this.setState({
@@ -52,6 +53,7 @@ class CardForm extends React.Component {
         })
     }
     render() {
+        console.log(this.state.data)
         return (
             <div className="card-form-wrapper">
                 <div className="edit-card-form-content">                   

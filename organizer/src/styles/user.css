@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 .active-user-list {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -147,6 +147,7 @@
 .single-card-wrapper .single-card {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   margin: 30px 0;
   padding: 20px 0;
   justify-content: space-around;
@@ -154,4 +155,18 @@
 .single-card-wrapper .single-card .user-card {
   padding-top: 40px;
   margin: 0;
+}
+
+@media (max-width:850px) {
+  .user-card {
+    width: 60%;
+  }
+  .single-card-wrapper .single-card .user-card {
+    margin-bottom: 40px;
+  }
+}
+@media (max-width:600px) {
+  .user-card {
+    width: 80%;
+  }
 }

@@ -17,12 +17,10 @@ class LoginPage extends React.Component {
     }
     login = e => {
         e.preventDefault();
-        console.log(this.props.location);
+        localStorage.setItem("username", this.state.credentials.username);
         this.props.login(this.state.credentials)
             .then(() => {
-                // const route = '/';
                 const route = this.props.location.state.from || '/';
-                // only fires if login call is successful
                 this.props.history.push(route);
             })
         this.setState({
