@@ -9,6 +9,7 @@ import UserIcon from "../img/user-icon.png";
 class Navigation extends Component {
     logout = (e) => {
         localStorage.removeItem("token");
+        localStorage.removeItem("username");
     }
     render() {
         return (
