@@ -10,8 +10,7 @@ class CardForm extends React.Component {
             phone: this.props.card.cell_phone,
             email: this.props.card.email,
             linkedIn: this.props.card.linkedIn,
-            gitHub: this.props.card.github,
-            own_flag: this.props.card.own_flag
+            gitHub: this.props.card.github
         }
     }
     submit = e => {
@@ -22,10 +21,9 @@ class CardForm extends React.Component {
             company_name: this.state.data.company,
             work_title: this.state.data.title,
             cell_phone: this.state.data.phone,
-            email: this.state.data.email || "",
+            email: this.state.data.email,
             linkedIn: this.state.data.linkedIn,
-            github: this.state.data.gitHub,
-            own_flag: this.state.data.own_flag
+            github: this.state.data.gitHub
         }
         this.setState({
             data: {
@@ -37,8 +35,7 @@ class CardForm extends React.Component {
                 phone: '',
                 email: '',
                 linkedIn: '',
-                gitHub: '',
-                own_flag: null
+                gitHub: ''
             }
         })
         console.log(updatedCard);
