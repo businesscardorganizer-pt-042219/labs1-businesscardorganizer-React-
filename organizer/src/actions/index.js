@@ -55,7 +55,7 @@ export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
 export const getCards = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
   axios
-    .get("https://business-card-organizer.herokuapp.com/api/users/mycards", {
+    .get("https://business-card-organizer.herokuapp.com/api/users/cards", {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
@@ -77,7 +77,7 @@ export const GET_CARD_BY_ID_FAILURE = "GET_CARD_BY_ID_FAILURE";
 export const getCardById = (id) => dispatch => {
   dispatch({ type: GET_CARD_BY_ID_START });
   axios
-    .get(`https://business-card-organizer.herokuapp.com/api/users/mycards/${id}`, {
+    .get(`https://business-card-organizer.herokuapp.com/api/users/cards/${id}`, {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
@@ -99,7 +99,7 @@ export const GET_USERS_CARD_FAILURE = "GET_USERS_CARD_FAILURE";
 export const getUsersCard = (id) => dispatch => {
   dispatch({ type: GET_USERS_CARD_START });
   axios
-    .get("https://business-card-organizer.herokuapp.com/api/users/mycard", {
+    .get(`https://business-card-organizer.herokuapp.com/api/users/usersowncard/${id}`, id, {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
@@ -167,7 +167,7 @@ export const ADD_CARD_FAILURE = 'ADD_CARD_FAILURE';
 export const addCard = newCard => dispatch => {
   dispatch({ type: ADD_CARD_START });
   axios
-    .post("https://business-card-organizer.herokuapp.com/api/users/mycards", newCard, {
+    .post("https://business-card-organizer.herokuapp.com/api/users/cards", newCard, {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
@@ -220,7 +220,7 @@ export const DELETE_CARD_FAILURE = 'DELETE_CARD_FAILURE';
 export const deleteCard = id => dispatch => {
   dispatch({ type: DELETE_CARD_START });
   axios
-    .delete(`https://business-card-organizer.herokuapp.com/api/users/mycards/${id}`, {
+    .delete(`https://business-card-organizer.herokuapp.com/api/users/cards/${id}`, {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then((res) => {
@@ -242,7 +242,7 @@ export const EDIT_CARD_FAILURE = 'EDIT_CARD_FAILURE';
 export const editCard = (id, updatedCard) => dispatch => {
   dispatch({ type: EDIT_CARD_START });
   axios
-    .put(`https://business-card-organizer.herokuapp.com/api/users/mycards/${id}`, updatedCard, {
+    .put(`https://business-card-organizer.herokuapp.com/api/users/cards/${id}`, updatedCard, {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
