@@ -43,7 +43,7 @@ class UserProfile extends Component {
                 { this.props.fetchingCards ? <SpinnerDataLoad /> : (
                     this.props.cards
                         .filter(card => {
-                            if (card.own_flag === true) {
+                            if (card.own_flag === "1") {
                                 return card
                             } else {
                                 return null
