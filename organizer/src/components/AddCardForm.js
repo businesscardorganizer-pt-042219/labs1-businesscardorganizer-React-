@@ -18,7 +18,7 @@ class AddCardForm extends React.Component {
             file: null,
             fileName: 'Choose a file'
         },
-        userName: localStorage.getItem("username"), // we need to change it to the username data
+        userName: localStorage.getItem("username"),
         collections: "" // check if it's own card or new card for the collection
     }
     /* Create user's profile card */
@@ -40,7 +40,6 @@ class AddCardForm extends React.Component {
             linkedIn: this.state.data.linkedIn,
             github: this.state.data.gitHub,
             own_flag: ownFlagValue
-            // file: this.state.file
         }
         this.props.addCard(newCard);
         this.setState({
