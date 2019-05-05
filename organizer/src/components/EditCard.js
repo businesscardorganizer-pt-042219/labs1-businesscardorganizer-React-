@@ -12,9 +12,10 @@ class EditCard extends React.Component {
         const id = this.props.match.params.id;
         this.props.getCardById(id);
     }
-    onSubmit = (updatedCard) => {
-        this.props.editCard(this.props.cardById.id, updatedCard);
+    onSubmit = (id, updatedCard) => {
+        this.props.editCard(id, updatedCard);
         this.props.getCards();
+        this.props.history.push("/");
     }
     render() {
         return (
